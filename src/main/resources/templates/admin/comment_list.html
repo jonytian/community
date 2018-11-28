@@ -28,11 +28,11 @@
                             <th:block th:each="comment : ${comments.list}">
                                 <tr th:attr="cid=${comment.coid}">
                                     <td>
-                                        <a th:href="@{${commons.site_url('/article/')}+${comment.cid}+'#comments'}"
-                                           target="_blank" th:utext="${commons.article(comment.content)}"></a>
+                                        <a
+                                           target="_blank" ></a>
                                     </td>
                                     <td th:text="${comment.author}"></td>
-                                    <td th:text="${commons.fmtdate(comment.created, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                    <td ></td>
                                     <td th:text="${comment.mail}"></td>
                                     <td><a th:href="@{${comment.url}}" target="_blank" th:text="${comment.url}"></a>
                                     </td>

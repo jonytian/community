@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 attach">
-                        <th:block th:if="${commons.is_empty(attachs)}">
+                        <th:block >
                             <div class="row">
                                 <div class="col-md-4 text-center">
                                     <div class="alert alert-warning">
@@ -75,10 +75,10 @@
                                 </div>
                             </div>
                         </th:block>
-                        <th:block th:unless="${commons.is_empty(attachs)}">
+                        <th:block >
                             <th:block th:each="attach : ${attachs.list}">
                                 <div class="col-md-2 text-center m-t-10">
-                                    <a th:href="${commons.site_url(attach.fkey)}" target="_blank">
+                                    <a  target="_blank">
                                         <img class="attach-img"
                                              th:src="@{${attach.ftype == 'image'}?${attach.fkey}: '/admin/images/attach.png'}"
                                              th:title="${attach.fname}"/>
@@ -86,10 +86,10 @@
                                     <div class="clearfix m-t-10">
                 <span class="attach-text" data-toggle="tooltip" data-placement="top"
                       th:attr="data-original-title=${attach.fname}"
-                      th:text="${commons.substr(attach.fname, 12)}"></span>
+                      ></span>
                                     </div>
                                     <div class="clearfix">
-                                        <button th:attr="url=${commons.site_url(attach.fkey)}" type="button"
+                                        <button  type="button"
                                                 class="btn btn-warning btn-sm waves-effect waves-light m-t-5 copy">
                                             <i class="fa fa-copy"></i> <span>复制</span>
                                         </button>

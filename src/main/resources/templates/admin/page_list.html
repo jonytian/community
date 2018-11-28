@@ -30,7 +30,7 @@
                                 <tr th:cid="${post.cid}">
                                     <td th:text="${post.title}"></td>
                                     <td th:text="${post.slug}"></td>
-                                    <td th:text="${commons.fmtdate(post.created, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                    <td ></td>
                                     <td>
                                         <th:block th:if="${post.status == 'publish'}" th:text="已发布"/>
                                         <th:block th:if="${post.status == 'draft'}" th:text="草稿"/>
