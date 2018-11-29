@@ -17,6 +17,7 @@
     <result column="allow_comment" jdbcType="BIT" property="allowComment" />
     <result column="allow_ping" jdbcType="BIT" property="allowPing" />
     <result column="allow_feed" jdbcType="BIT" property="allowFeed" />
+    <result column="stick" jdbcType="INTEGER" property="stick" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tyj.community.entity.ContentVo">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
@@ -81,7 +82,7 @@
   </sql>
   <sql id="Base_Column_List">
     cid, title, slug, created, modified, author_id, type, status, tags, categories, hits, 
-    comments_num, allow_comment, allow_ping, allow_feed
+    comments_num, allow_comment, allow_ping, allow_feed , stick
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -94,6 +95,7 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
+    ,(select u.nickname from t_users u where u.uid=author_id) as author
     from t_contents
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

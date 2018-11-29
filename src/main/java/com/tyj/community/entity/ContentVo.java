@@ -36,6 +36,12 @@ public class ContentVo implements Serializable {
      */
     private Integer authorId;
 
+
+    /**
+     * 内容所属用户昵称
+     */
+    private String author;
+
     /**
      * 内容类别
      */
@@ -86,6 +92,11 @@ public class ContentVo implements Serializable {
      */
     private String content;
 
+    /**
+     * 是否置顶：0不置顶 1置顶
+     */
+    private Integer stick;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getCid() {
@@ -126,6 +137,14 @@ public class ContentVo implements Serializable {
 
     public void setModified(Integer modified) {
         this.modified = modified;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Integer getAuthorId() {
@@ -214,5 +233,13 @@ public class ContentVo implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Integer getStick() {
+        return stick;
+    }
+
+    public void setStick(Integer stick) {
+        this.stick = stick;
     }
 }

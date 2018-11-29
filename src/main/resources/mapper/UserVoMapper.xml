@@ -12,6 +12,7 @@
     <result column="activated" jdbcType="INTEGER" property="activated" />
     <result column="logged" jdbcType="INTEGER" property="logged" />
     <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>

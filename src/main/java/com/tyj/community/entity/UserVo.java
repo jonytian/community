@@ -51,6 +51,8 @@ public class UserVo implements Serializable {
      */
     private Integer logged;
 
+    private String nickname;
+
     /**
      * 用户组
      */
@@ -136,5 +138,13 @@ public class UserVo implements Serializable {
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

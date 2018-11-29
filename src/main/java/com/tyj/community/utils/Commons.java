@@ -18,6 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * 公共函数
  * Created by tyj on 2018/11/28.
  */
 
