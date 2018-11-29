@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by tyj on 2018/11/27.
  */
 public class BaseController {
-    public static String THEME = "themes/default";
+    public static String THEME = "themes";
 
     protected MapCache cache = MapCache.single();
 
