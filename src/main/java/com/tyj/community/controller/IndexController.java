@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 首页
@@ -46,7 +47,9 @@ public class IndexController extends BaseController{
     public String index(HttpServletRequest request, @PathVariable int p, @RequestParam(value = "limit", defaultValue = "12") int limit) {
         p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
         PageInfo<ContentVo> articles = contentService.getContents(p, limit);
+        List<ContentVo> hotArticles = contentService.getHotContents();
         request.setAttribute("articles", articles);
+        request.setAttribute("hotArticles", hotArticles);
         if (p > 1) {
             this.title(request, "第" + p + "页");
         }

@@ -87,6 +87,8 @@
   <sql id="Blob_Column_List">
     content
   </sql>
+
+  <!--查询主页的文章列表-->
   <select id="selectByExampleWithBLOBs" parameterType="com.tyj.community.entity.ContentVoExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
@@ -104,6 +106,32 @@
       order by ${orderByClause}
     </if>
   </select>
+
+  <!--查询侧边栏信息-->
+  <select id="getHotContents" parameterType="com.tyj.community.entity.ContentVoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    ,(select u.nickname from t_users u where u.uid=author_id) as author
+    from t_contents
+    order by comments_num desc limit 0,9
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
   <select id="selectByExample" parameterType="com.tyj.community.entity.ContentVoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">

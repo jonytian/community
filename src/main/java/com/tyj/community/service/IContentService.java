@@ -4,6 +4,8 @@ import com.github.pagehelper.PageInfo;
 import com.tyj.community.entity.ContentVo;
 import com.tyj.community.entity.ContentVoExample;
 
+import java.util.List;
+
 /**
  * Created by tyj on 2018/11/28.
  */
@@ -29,7 +31,13 @@ public interface IContentService {
      */
     PageInfo<ContentVo> getContents(Integer p, Integer limit);
 
-
+    /**
+     *查询文章返回多条数据
+     * @param p 当前页
+     * @param limit 每页条数
+     * @return ContentVo
+     */
+    List<ContentVo> getHotContents();
     /**
      * 根据id或slug获取文章
      *

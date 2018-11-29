@@ -132,6 +132,12 @@ public class ContentServiceImpl implements IContentService {
     }
 
     @Override
+    public List<ContentVo> getHotContents() {
+        ContentVoExample example = new ContentVoExample();
+       return contentDao.getHotContents(example);
+    }
+
+    @Override
     public void updateContentByCid(ContentVo contentVo) {
         if (null != contentVo && null != contentVo.getCid()) {
             contentDao.updateByPrimaryKeySelective(contentVo);
