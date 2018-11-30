@@ -101,6 +101,11 @@ public class CommentServiceImpl implements ICommentService {
     }
 
     @Override
+    public List<CommentVo> getCommentsByArticleId(Integer articleId){
+       return commentDao.getCommentsByArticleId(articleId);
+    }
+
+    @Override
     public void update(CommentVo comments) {
         if (null != comments && null != comments.getCoid()) {
             commentDao.updateByPrimaryKeyWithBLOBs(comments);

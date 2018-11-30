@@ -92,10 +92,15 @@ public class IndexController extends BaseController{
     @GetMapping(value = {"article/{cid}", "article/{cid}.html"})
     public String getArticle(HttpServletRequest request, @PathVariable String cid) {
         ContentVo contents = contentService.getContents(cid);
+        List<ContentVo> hotArticles = contentService.getHotContents();
         if (null == contents || "draft".equals(contents.getStatus())) {
             return this.render_404();
         }
+        //获取评论列表
+        List<CommentVo> comments = commentService.getCommentsByArticleId(contents.getCid());
         request.setAttribute("article", contents);
+        request.setAttribute("hotArticles", hotArticles);
+        request.setAttribute("comments", comments);
         request.setAttribute("is_post", true);
         completeArticle(request, contents);
         updateArticleHit(contents.getCid(), contents.getHits());

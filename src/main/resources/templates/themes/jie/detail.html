@@ -1,10 +1,8 @@
- 
- 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
-  <title>Fly Template v3.0，基于 layui 的极简社区页面模版</title>
+  <title th:text="${article.title}"></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="fly,layui,前端社区">
   <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
@@ -54,7 +52,7 @@
       <!-- 登入后的状态 -->
       <li class="layui-nav-item">
         <a class="fly-nav-avatar" href="javascript:;">
-          <cite class="layui-hide-xs">贤心</cite>
+          <cite class="layui-hide-xs" th:text="${article.author}"></cite>
           <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>
           <i class="layui-badge fly-badge-vip layui-hide-xs">VIP3</i>
           <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
@@ -104,7 +102,7 @@
   <div class="layui-row layui-col-space15">
     <div class="layui-col-md8 content detail">
       <div class="fly-panel detail-box">
-        <h1>Fly Template v3.0，基于 layui 的极简社区页面模版</h1>
+        <h1 th:text="${article.title}"></h1>
         <div class="fly-detail-info">
           <!-- <span class="layui-badge">审核中</span> -->
           <span class="layui-badge layui-bg-green fly-detail-column">动态</span>
@@ -135,7 +133,7 @@
           </a>
           <div class="fly-detail-user">
             <a href="../user/home.html" class="fly-link">
-              <cite>贤心</cite>
+              <cite th:text="${article.author}"></cite>
               <i class="iconfont icon-renzheng" title="认证信息：{{ rows.user.approve }}"></i>
               <i class="layui-badge fly-badge-vip">VIP3</i>
             </a>
@@ -147,26 +145,7 @@
           </div>
         </div>
         <div class="detail-body photos">
-          <p>
-            该模版由 layui官方社区（<a href="http://fly.layui.com/" target="_blank">fly.layui.com</a>）倾情提供，只为表明我们对 layui 执着的信念、以及对未来持续加强的承诺。该模版基于 layui 搭建而成，可作为极简通用型社区的页面支撑。
-          </p>
-          <p>更新日志：</p>
-<pre>
-# v3.0 2017-11-30
-* 采用 layui 2.2.3 作为 UI 支撑
-* 全面同步最新的 Fly 社区风格，各种细节得到大幅优化
-* 更友好的响应式适配能力
-</pre>
-          
-          下载<hr>
-          <p>
-            官网：<a href="http://www.layui.com/template/fly/" target="_blank">http://www.layui.com/template/fly/</a><br>
-            码云：<a href="https://gitee.com/sentsin/fly/" target="_blank">https://gitee.com/sentsin/fly/</a><br>
-            GitHub：<a href="https://github.com/layui/fly" target="_blank">https://github.com/layui/fly</a>
-          </p>
-          封面<hr>
-          <p>
-            <img src="../../res/images/fly.jpg" alt="Fly社区">
+          <p th:text="${article.content}">
           </p>
         </div>
       </div>
@@ -185,7 +164,7 @@
               </a>
               <div class="fly-detail-user">
                 <a href="" class="fly-link">
-                  <cite>贤心</cite>
+                  <cite >贤心</cite>
                   <i class="iconfont icon-renzheng" title="认证信息：XXX"></i>
                   <i class="layui-badge fly-badge-vip">VIP3</i>              
                 </a>
@@ -232,11 +211,11 @@
               </a>
               <div class="fly-detail-user">
                 <a href="" class="fly-link">
-                  <cite>贤心</cite>       
+                  <cite th:text="${article.author}"></cite>
                 </a>
               </div>
               <div class="detail-hits">
-                <span>2017-11-30</span>
+                <span th:text="${article.created}"></span>
               </div>
             </div>
             <div class="detail-body jieda-body photos">
@@ -282,46 +261,17 @@
     <div class="layui-col-md4">
       <dl class="fly-panel fly-list-one">
         <dt class="fly-panel-title">本周热议</dt>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
+        <th:block th:each="hotArticle: ${hotArticles}">
+          <dd>
+            <a href="jie/detail.html" th:text="${hotArticle.title}"></a>
+            <span>
+              <i class="iconfont icon-pinglun1"></i>
+              <i th:text="${hotArticle.commentsNum}"></i>
+            </span>
+          </dd>
+        </th:block>
+
+
 
         <!-- 无数据时 -->
         <!--
@@ -331,30 +281,24 @@
 
       <div class="fly-panel">
         <div class="fly-panel-title">
-          这里可作为广告区域
+          广告区域
         </div>
         <div class="fly-panel-main">
-          <a href="http://layim.layui.com/?from=fly" target="_blank" class="fly-zanzhu" time-limit="2017.09.25-2099.01.01" style="background-color: #5FB878;">LayIM 3.0 - layui 旗舰之作</a>
+          <a href="http://layim.layui.com/?from=fly" target="_blank" class="fly-zanzhu" time-limit="2017.09.25-2099.01.01" style="background-color: #5FB878;">广告</a>
         </div>
       </div>
 
       <div class="fly-panel" style="padding: 20px 0; text-align: center;">
         <img src="../../res/images/weixin.jpg" style="max-width: 100%;" alt="layui">
-        <p style="position: relative; color: #666;">微信扫码关注 layui 公众号</p>
+        <p style="position: relative; color: #666;">微信扫码关注公众号</p>
       </div>
 
     </div>
   </div>
 </div>
 
-<div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
-  <p>
-    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
-    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
-  </p>
-</div>
+<!--底部-->
+<div th:replace="themes/common/footer::footer"></div>
 
 <script src="../../res/layui/layui.js"></script>
 <script>

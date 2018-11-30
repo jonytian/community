@@ -416,4 +416,16 @@
       parent = #{parent,jdbcType=INTEGER}
     where coid = #{coid,jdbcType=INTEGER}
   </update>
+
+  <!--按文章id查询评论-->
+  <select id="getCommentsByArticleId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_comments
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+
+
 </mapper>

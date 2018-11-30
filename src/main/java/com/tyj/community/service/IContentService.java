@@ -33,8 +33,6 @@ public interface IContentService {
 
     /**
      *查询文章返回多条数据
-     * @param p 当前页
-     * @param limit 每页条数
      * @return ContentVo
      */
     List<ContentVo> getHotContents();

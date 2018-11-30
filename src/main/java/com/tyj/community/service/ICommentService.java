@@ -5,6 +5,8 @@ import com.tyj.community.entity.CommentBo;
 import com.tyj.community.entity.CommentVo;
 import com.tyj.community.entity.CommentVoExample;
 
+import java.util.List;
+
 /**
  * Created by tyj on 2018/11/28.
  */
@@ -34,6 +36,13 @@ public interface ICommentService {
      */
     PageInfo<CommentVo> getCommentsWithPage(CommentVoExample commentVoExample, int page, int limit);
 
+
+    /**
+     * 根据文章id查询评论
+     * @param articleId
+     * @return
+     */
+    List<CommentVo> getCommentsByArticleId(Integer articleId);
 
     /**
      * 根据主键查询评论
