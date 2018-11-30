@@ -170,6 +170,7 @@ public final class Commons {
      * @return
      */
     public static String permalink(ContentVo contents) {
+
         return permalink(contents.getCid(), contents.getSlug());
     }
 
@@ -193,6 +194,7 @@ public final class Commons {
      * @return
      */
     public static String permalink(Integer cid, String slug) {
+
         return site_url("/article/" + (StringUtils.isNotBlank(slug) ? slug : cid.toString()));
     }
 

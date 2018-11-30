@@ -1,12 +1,18 @@
-<div class="fly-footer">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="fly-footer" th:fragment="footer-content">
+  <footer class="fly-footer">
   <p><a href="https://github.com/" target="_blank">社区</a> 2018 &copy; <a href="https://github.com/" target="_blank">tyj</a></p>
   <p>
     <a href="https://github.com/" target="_blank">付费计划</a>
     <a href="https://github.com/" target="_blank">加入会员</a>
     <a href="https://github.com/" target="_blank">微信公众号</a>
   </p>
+  </footer>
 </div>
 
+<body th:fragment="footer">
 <script src="../res/layui/layui.js"></script>
 <script>
 layui.cache.page = '';
@@ -24,3 +30,7 @@ layui.config({
   fly: 'index'
 }).use('fly');
 </script>
+
+</body>
+</html>
+
