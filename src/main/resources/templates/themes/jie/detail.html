@@ -156,7 +156,7 @@
         </fieldset>
 
         <ul class="jieda" id="jieda">
-          <th:block th:each="comment: ${comments}">
+          <th:block th:each="comment1: ${comments}">
             <li data-id="111">
               <a name="item-1111111111"></a>
               <div class="detail-about detail-about-reply">
@@ -165,15 +165,15 @@
                 </a>
                 <div class="fly-detail-user">
                   <a href="" class="fly-link">
-                    <cite th:text="${comment.author}"></cite>
+                    <cite th:text="${comment1.author}"></cite>
                   </a>
                 </div>
                 <div class="detail-hits">
-                  <span th:text="${comment.created}"></span>
+                  <!--<span th:text="${comment.created}"></span>-->
                 </div>
               </div>
               <div class="detail-body jieda-body photos">
-                <p th:text="${comment.content}"></p>
+                <!--<p th:text="${comment.content}"></p>-->
               </div>
               <div class="jieda-reply">
               <span class="jieda-zan" type="zan">

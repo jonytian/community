@@ -21,7 +21,7 @@
         <a href="/"><i class="iconfont icon-jiaoliu"></i>交流</a>
       </li>
       <li class="layui-nav-item">
-        <a href="case/case.html"><i class="iconfont icon-iconmingxinganli"></i>案例</a>
+        <a href="case/case"><i class="iconfont icon-iconmingxinganli"></i>案例</a>
       </li>
       <li class="layui-nav-item">
         <a href="http://www.layui.com/" target="_blank"><i class="iconfont icon-ui"></i>框架</a>
@@ -35,10 +35,10 @@
         <a class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
       </li>
       <li class="layui-nav-item">
-        <a href="user/login.html">登入</a>
+        <a href="user/login">登入</a>
       </li>
       <li class="layui-nav-item">
-        <a href="user/reg.html">注册</a>
+        <a href="user/reg">注册</a>
       </li>
       <li class="layui-nav-item layui-hide-xs">
         <a href="/app/qq/" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
@@ -73,25 +73,25 @@
   <div class="layui-container">
     <ul class="layui-clear">
       <li class="layui-hide-xs layui-this"><a href="/">首页</a></li>
-      <li><a href="jie/index.html">提问</a></li>
-      <li><a href="jie/index.html">分享<span class="layui-badge-dot"></span></a></li>
-      <li><a href="jie/index.html">讨论</a></li>
-      <li><a href="jie/index.html">建议</a></li>
-      <li><a href="jie/index.html">公告</a></li>
-      <li><a href="jie/index.html">动态</a></li>
+      <li><a href="jie/index">提问</a></li>
+      <li><a href="jie/index">分享<span class="layui-badge-dot"></span></a></li>
+      <li><a href="jie/inde">讨论</a></li>
+      <li><a href="jie/index">建议</a></li>
+      <li><a href="jie/index">公告</a></li>
+      <li><a href="jie/index">动态</a></li>
       <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
 
       <!-- 用户登入后显示 -->
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html">我发表的贴</a></li>
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html#collection">我收藏的贴</a></li>
+      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index">我发表的贴</a></li>
+      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/collection">我收藏的贴</a></li>
     </ul>
 
     <div class="fly-column-right layui-hide-xs">
       <span class="fly-search"><i class="layui-icon"></i></span>
-      <a href="jie/add.html" class="layui-btn">发表新帖</a>
+      <a href="jie/add" class="layui-btn">发表新帖</a>
     </div>
     <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
-      <a href="jie/add.html" class="layui-btn">发表新帖</a>
+      <a href="jie/add" class="layui-btn">发表新帖</a>
     </div>
   </div>
 </div>
@@ -108,7 +108,7 @@
           <th:block th:each="article: ${articles.list}">
             <th:block th:if="${article.stick == 1}">
             <li>
-              <a href="user/home.html" class="fly-avatar">
+              <a href="user/home" class="fly-avatar">
                 <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt="贤心">
               </a>
               <h2>
@@ -116,7 +116,7 @@
                 <a th:href="${commons.permalink(article)}" th:text="${article.title}"></a>
               </h2>
               <div class="fly-list-info">
-                <a href="user/home.html" link>
+                <a href="user/home" link>
                   <cite th:text="${article.author}"></cite>
                   <!--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
                   <!--<i class="layui-badge fly-badge-vip">VIP3</i>-->
@@ -166,7 +166,7 @@
           <th:block th:each="article: ${articles.list}">
             <th:block th:if="${article.stick == 0}">
             <li>
-              <a href="user/home.html" class="fly-avatar">
+              <a href="user/home" class="fly-avatar">
                 <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt="贤心">
               </a>
               <h2>
@@ -174,7 +174,7 @@
                 <a th:href="${commons.permalink(article)}" th:text="${article.title}"></a>
               </h2>
               <div class="fly-list-info">
-                <a href="user/home.html" link>
+                <a href="user/home" link>
                   <cite th:text="${article.author}"></cite>
                   <!--<i class="iconfont icon-renzheng" title="认证信息：XXX"></i>-->
                   <!--<i class="layui-badge fly-badge-vip">VIP3</i>-->
@@ -203,7 +203,7 @@
         </ul>
         <div style="text-align: center">
           <div class="laypage-main">
-            <a href="jie/index.html"  class="laypage-next">更多求解</a>
+            <a href="jie/index"  class="laypage-next">更多求解</a>
           </div>
         </div>
 
@@ -248,7 +248,7 @@
           <!--<i class="layui-icon fly-loading">&#xe63d;</i>-->
           <th:block th:each="hotArticle: ${hotArticles}">
             <dd>
-              <a href="user/home.html">
+              <a href="user/home">
                 <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
                 <cite th:text="${hotArticle.author}"></cite>
                 <i th:text="${hotArticle.commentsNum} +'次回答' "></i>
@@ -264,7 +264,7 @@
         <dt class="fly-panel-title">本周热议</dt>
         <th:block th:each="hotArticle: ${hotArticles}">
           <dd>
-            <a href="jie/detail.html" th:text="${hotArticle.title}"></a>
+            <a href="jie/detail" th:text="${hotArticle.title}"></a>
             <span>
               <i class="iconfont icon-pinglun1"></i>
               <i th:text="${hotArticle.commentsNum}"></i>

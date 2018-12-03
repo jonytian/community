@@ -104,7 +104,7 @@ public class IndexController extends BaseController{
         request.setAttribute("is_post", true);
         completeArticle(request, contents);
         updateArticleHit(contents.getCid(), contents.getHits());
-        return this.render("jie/detail");
+          return this.render("jie/detail");
     }
 
     /**
@@ -415,5 +415,21 @@ public class IndexController extends BaseController{
         response.addCookie(cookie);
     }
 
+    /**
+     *  jie add
+     * @return
+     */
+    @RequestMapping("jie/add")
+    public String add() {
+        return this.render("jie/add");
+    }
 
+    /**
+     *  jie add
+     * @return
+     */
+    @RequestMapping("jie/index")
+    public String home() {
+        return this.render("jie/index");
+    }
 }
