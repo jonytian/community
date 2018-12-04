@@ -1,45 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="utf-8">
-  <title>社区</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="社区">
-  <meta name="description" content="致力于更好的交流体验">
-  <link rel="stylesheet" href="../res/layui/css/layui.css">
-  <link rel="stylesheet" href="../res/css/global.css">
+<html xmlns:th="http://www.thymeleaf.org" th:with="title='首页',active='home'">
+<!--head部分-->
+<head th:include="themes/common/layout :: head(${title},${active})">
 </head>
 <body>
-
 <!--头部-->
 <div th:replace="themes/common/header::header"></div>
-
-<div class="fly-panel fly-column">
-  <div class="layui-container">
-    <ul class="layui-clear">
-      <li class="layui-hide-xs layui-this"><a href="/">首页</a></li>
-      <li><a href="jie/index">提问</a></li>
-      <li><a href="jie/index">分享<span class="layui-badge-dot"></span></a></li>
-      <li><a href="jie/inde">讨论</a></li>
-      <li><a href="jie/index">建议</a></li>
-      <li><a href="jie/index">公告</a></li>
-      <li><a href="jie/index">动态</a></li>
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
-
-      <!-- 用户登入后显示 -->
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index">我发表的贴</a></li>
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/collection">我收藏的贴</a></li>
-    </ul>
-
-    <div class="fly-column-right layui-hide-xs">
-      <span class="fly-search"><i class="layui-icon"></i></span>
-      <a href="jie/add" class="layui-btn">发表新帖</a>
-    </div>
-    <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
-      <a href="jie/add" class="layui-btn">发表新帖</a>
-    </div>
-  </div>
-</div>
+<!--column-->
+<div th:replace="themes/common/column::column"></div>
 
 <div class="layui-container">
   <div class="layui-row layui-col-space15">
@@ -92,20 +60,8 @@
 
       <div class="fly-panel" style="margin-bottom: 0;">
 
-        <div class="fly-panel-title fly-filter">
-          <a href="" class="layui-this">综合</a>
-          <span class="fly-mid"></span>
-          <a href="">未结</a>
-          <span class="fly-mid"></span>
-          <a href="">已结</a>
-          <span class="fly-mid"></span>
-          <a href="">精华</a>
-          <span class="fly-filter-right layui-hide-xs">
-            <a href="" class="layui-this">按最新</a>
-            <span class="fly-mid"></span>
-            <a href="">按热议</a>
-          </span>
-        </div>
+        <!--filter-->
+        <div th:replace="themes/common/filter::filter"></div>
 
         <ul class="fly-list">
           <th:block th:each="article: ${articles.list}">
@@ -154,6 +110,8 @@
 
       </div>
     </div>
+
+
     <div class="layui-col-md4">
 
       <div class="fly-panel">
@@ -246,8 +204,6 @@
 
 <!--底部-->
 <div th:replace="themes/common/footer::footer"></div>
-
- 
 <script src="../res/layui/layui.js"></script>
 <script>
 layui.cache.page = '';
@@ -265,8 +221,8 @@ layui.config({
   fly: 'index'
 }).use('fly');
 </script>
-
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
-
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));
+</script>
 </body>
 </html>

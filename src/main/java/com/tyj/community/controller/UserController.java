@@ -28,9 +28,9 @@ public class UserController extends BaseController{
      * 用户注册
      * @return
      */
-    @RequestMapping("/reg")
-    public String reg() {
-        return this.render("user/reg");
+    @RequestMapping("/register")
+    public String register() {
+        return this.render("user/register");
     }
 
 
@@ -44,7 +44,7 @@ public class UserController extends BaseController{
     }
 
     /**
-     * 用户重置
+     * 激活邮箱
      * @return
      */
     @RequestMapping("/activate")

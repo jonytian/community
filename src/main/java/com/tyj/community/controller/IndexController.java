@@ -425,7 +425,7 @@ public class IndexController extends BaseController{
     }
 
     /**
-     *  jie add
+     *  jie index
      * @return
      */
     @RequestMapping("jie/index")

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
-<body>
 <header th:fragment="header">
   <div class="fly-header layui-bg-black">
   <div class="layui-container">
@@ -29,7 +28,7 @@
         <a href="../user/login">登入</a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/reg">注册</a>
+        <a href="../user/register">注册</a>
       </li>
       <li class="layui-nav-item layui-hide-xs">
         <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
@@ -60,12 +59,10 @@
     </ul>
   </div>
 </div>
-
   <!-- 移动导航 -->
   <div class="site-tree-mobile layui-hide">
     <i class="layui-icon">&#xe602;</i>
   </div>
   <div class="site-mobile-shade"></div>
 </header>
-</body>
 </html>

@@ -1,16 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="utf-8">
-  <title>用户中心</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="fly,layui,前端社区">
-  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
-  <link rel="stylesheet" href="../../res/layui/css/layui.css">
-  <link rel="stylesheet" href="../../res/css/global.css">
+<html xmlns:th="http://www.thymeleaf.org" th:with="title='用户中心',active='index'">
+<!--head部分-->
+<head th:include="themes/common/layout :: head(${title},${active})">
 </head>
 <body>
-
 <!--头部-->
 <div th:replace="themes/common/header::header"></div>
 
@@ -46,13 +39,13 @@
     <i class="layui-icon">&#xe602;</i>
   </div>
   <div class="site-mobile-shade"></div>
-  
+
   <div class="site-tree-mobile layui-hide">
     <i class="layui-icon">&#xe602;</i>
   </div>
   <div class="site-mobile-shade"></div>
-  
-  
+
+
   <div class="fly-panel fly-panel-user" pad20>
     <!--
     <div class="fly-msg" style="margin-top: 15px;">
@@ -103,7 +96,6 @@
 
 <!--底部-->
 <div th:replace="themes/common/footer::footer"></div>
-
 <script src="../../res/layui/layui.js"></script>
 <script>
 layui.cache.page = 'user';
@@ -121,6 +113,5 @@ layui.config({
   fly: 'index'
 }).use('fly');
 </script>
-
 </body>
 </html>
