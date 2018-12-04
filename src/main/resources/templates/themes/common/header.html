@@ -1,4 +1,8 @@
-<div class="fly-header layui-bg-black">
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header">
+  <div class="fly-header layui-bg-black">
   <div class="layui-container">
     <a class="fly-logo" href="/">
       <img src="../res/images/logo.png" alt="layui">
@@ -8,7 +12,7 @@
         <a href="/"><i class="iconfont icon-jiaoliu"></i>交流</a>
       </li>
       <li class="layui-nav-item">
-        <a href="case/case.html"><i class="iconfont icon-iconmingxinganli"></i>案例</a>
+        <a href="case/case"><i class="iconfont icon-iconmingxinganli"></i>案例</a>
       </li>
       <li class="layui-nav-item">
         <a href="https://github.com/" target="_blank"><i class="iconfont icon-ui"></i>框架</a>
@@ -19,13 +23,13 @@
       
       <!-- 未登入的状态 -->
       <li class="layui-nav-item">
-        <a class="iconfont icon-touxiang layui-hide-xs" href="../user/login.html"></a>
+        <a class="iconfont icon-touxiang layui-hide-xs" href="../user/login"></a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/login.html">登入</a>
+        <a href="../user/login">登入</a>
       </li>
       <li class="layui-nav-item">
-        <a href="../user/reg.html">注册</a>
+        <a href="../user/reg">注册</a>
       </li>
       <li class="layui-nav-item layui-hide-xs">
         <a href="" onclick="layer.msg('正在通过QQ登入', {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>
@@ -56,3 +60,12 @@
     </ul>
   </div>
 </div>
+
+  <!-- 移动导航 -->
+  <div class="site-tree-mobile layui-hide">
+    <i class="layui-icon">&#xe602;</i>
+  </div>
+  <div class="site-mobile-shade"></div>
+</header>
+</body>
+</html>
