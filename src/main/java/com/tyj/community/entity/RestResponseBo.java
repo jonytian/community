@@ -18,7 +18,7 @@ public class RestResponseBo<T> {
     /**
      * 错误信息
      */
-    private String msg;
+    private String message;
 
     /**
      * 状态码
@@ -52,16 +52,16 @@ public class RestResponseBo<T> {
         this.code = code;
     }
 
-    public RestResponseBo(boolean success, String msg) {
+    public RestResponseBo(boolean success, String message) {
         this.timestamp = System.currentTimeMillis() / 1000;
         this.success = success;
-        this.msg = msg;
+        this.message = message;
     }
 
     public RestResponseBo(boolean success, String msg, int code) {
         this.timestamp = System.currentTimeMillis() / 1000;
         this.success = success;
-        this.msg = msg;
+        this.message = message;
         this.code = code;
     }
 
@@ -81,12 +81,12 @@ public class RestResponseBo<T> {
         this.success = success;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String msg) {
+        this.message = message;
     }
 
     public int getCode() {

@@ -16,30 +16,42 @@
       <div class="layui-form layui-tab-content" id="LAY_ucm" style="padding: 20px 0;">
         <div class="layui-tab-item layui-show">
           <div class="layui-form layui-form-pane">
-            <form method="post">
+            <form id="useLogin" class="layui-form" action="">
               <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">邮箱</label>
+                <label for="L_email" class="layui-form-label">用户名</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="text" id="L_email" name="username" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
               <div class="layui-form-item">
                 <label for="L_pass" class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="pass" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="password" id="L_pass" name="password" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
+
               <div class="layui-form-item">
-                <label for="L_vercode" class="layui-form-label">人类验证</label>
-                <div class="layui-input-inline">
-                  <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid">
-                  <span style="color: #c00;">{{d.vercode}}</span>
-                </div>
+              <div class="layui-inline">
+              <label class="layui-form-label">验证码</label>
+              <div class="layui-input-inline" style="width: 100px;">
+              <input id="code" name="code" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
               </div>
+              <div class="layui-input-inline" style="width: 120px;">
+              <canvas id="canvas" width="120" height="38"></canvas>
+              </div>
+              </div>
+              </div>
+
+
+              <div class="layui-form-item" style="margin-top: -20px;">
+              <div class="layui-inline">
+              <input type="checkbox" name="rememberMe" lay-skin="primary"  title="记住我"/>
+              </div>
+              </div>
+
               <div class="layui-form-item">
-                <button class="layui-btn" lay-filter="*" lay-submit>立即登录</button>
+                <button id="loginBtn" class="layui-btn" lay-filter="login" lay-submit>立即登录</button>
+                <!--<button id="loginBtn" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="login">登录</button>-->
                 <span style="padding-left:20px;">
                   <a href="forget">忘记密码？</a>
                 </span>
@@ -50,6 +62,50 @@
                 <a href="" onclick="layer.msg('正在通过微博登入', {icon:16, shade: 0.1, time:0})" class="iconfont icon-weibo" title="微博登入"></a>
               </div>
             </form>
+
+
+
+            <!--<form id="useLogin" class="layui-form" action="">-->
+              <!--<div class="layui-form-item">-->
+                <!--<label class="layui-form-label">用户名</label>-->
+                <!--<div class="layui-input-inline">-->
+                  <!--<input id="username" name="username" lay-verify="required" autocomplete="off" class="layui-input" type="tel"/>-->
+                <!--</div>-->
+              <!--</div>-->
+
+              <!--<div class="layui-form-item">-->
+                <!--<label class="layui-form-label">密&nbsp;&nbsp;码</label>-->
+                <!--<div class="layui-input-inline">-->
+                  <!--<input id="password" name="password" lay-verify="required" autocomplete="off" class="layui-input" type="password"/>-->
+                <!--</div>-->
+              <!--</div>-->
+
+
+              <!--<div class="layui-form-item">-->
+                <!--<div class="layui-inline">-->
+                  <!--<label class="layui-form-label">验证码</label>-->
+                  <!--<div class="layui-input-inline" style="width: 100px;">-->
+                    <!--<input id="code" name="code" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>-->
+                  <!--</div>-->
+                  <!--<div class="layui-input-inline" style="width: 120px;">-->
+                    <!--<canvas id="canvas" width="120" height="38"></canvas>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+
+
+              <!--<div class="layui-form-item" style="margin-top: -20px;">-->
+                <!--<div class="layui-inline">-->
+                  <!--<input type="checkbox" name="rememberMe" lay-skin="primary"  title="记住我"/>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="layui-form-item">-->
+                <!--<div class="layui-input-block">-->
+                  <!--<button class="layui-btn" type="reset">重置</button>-->
+                  <!--<button id="loginBtn" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="login">登录</button>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</form>-->
           </div>
         </div>
       </div>
@@ -61,6 +117,8 @@
 <div th:replace="themes/common/footer::footer"></div>
 
 <script src="../../res/layui/layui.js"></script>
+<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="/js/validate.js"></script>
 <script>
 layui.cache.page = 'user';
 layui.cache.user = {
