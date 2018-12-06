@@ -51,6 +51,10 @@ public class UserVo implements Serializable {
      */
     private Integer logged;
 
+
+    /**
+     * 昵称
+     */
     private String nickname;
 
     /**

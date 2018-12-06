@@ -27,7 +27,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Integer insertUser(UserVo userVo) {
         Integer uid = null;
-        if (StringUtils.isNotBlank(userVo.getUsername()) && StringUtils.isNotBlank(userVo.getEmail())) {
+        if (StringUtils.isNotBlank(userVo.getUsername()) ) {
 //            用户密码加密
             String encodePwd = TaleUtils.MD5encode(userVo.getUsername() + userVo.getPassword());
             userVo.setPassword(encodePwd);

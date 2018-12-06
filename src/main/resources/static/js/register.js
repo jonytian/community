@@ -1,5 +1,5 @@
 /**
- * 登录
+ * 注册
  */
 var picCode;
 $(function(){
@@ -17,8 +17,8 @@ $(function(){
         //     return false;
         // });
         // alert(2);
-        form.on("submit(login)",function () {
-            login();
+        form.on("submit(register)",function () {
+            register();
             return false;
         });
 
@@ -32,7 +32,7 @@ $(function(){
     })
 });
 
-function login(){
+function register(){
     // var flag=checkParams();
     // var flag=true;
     // if(flag!=false){
@@ -46,10 +46,10 @@ function login(){
     //         });
     //         return false;
     //     }
-    $.post("/user/login",$("#userLogin").serialize(),function(data){
+    $.post("/user/register",$("#userRegister").serialize(),function(data){
         console.log("data:"+data);
         if(data.success){
-            layer.alert("登录成功",function () {
+            layer.alert("注册成功",function () {
                 window.location.href="/";
             });
         }else{

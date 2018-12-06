@@ -47,9 +47,7 @@ public class UserController extends BaseController{
     }
 
     /**
-     * 登录【使用shiro中自带的HashedCredentialsMatcher结合ehcache（记录输错次数）配置进行密码输错次数限制】
-     * </br>缺陷是，无法友好的在后台提供解锁用户的功能，当然，可以直接提供一种解锁操作，清除ehcache缓存即可，不记录在用户表中；
-     * </br>
+     * 登录
      * @param user
      * @param rememberMe
      * @return
@@ -67,7 +65,7 @@ public class UserController extends BaseController{
             if (rememberMe) {
                 TaleUtils.setCookie(response, user.getUid());
             }
-            logService.insertLog(LogActions.LOGIN.getAction(), null, request.getRemoteAddr(), user.getUid());
+            logService.insertLog(LogActions.LOGININDEX.getAction(), null, request.getRemoteAddr(), user.getUid());
         } catch (Exception e) {
             error_count = null == error_count ? 1 : error_count + 1;
             if (error_count > 3) {
@@ -93,6 +91,36 @@ public class UserController extends BaseController{
     public String register() {
         return this.render("user/register");
     }
+
+
+    /**
+     * 注册
+     * @param user
+     * @return
+     */
+    @RequestMapping(value = "register", method = RequestMethod.POST)
+    @ResponseBody
+    public RestResponseBo register(
+            UserVo user,
+            HttpServletRequest request, HttpServletResponse response) {
+
+        try {
+            Integer register  = usersService.insertUser(user);
+            logService.insertLog(LogActions.REGINDEX.getAction(), null, request.getRemoteAddr(), user.getUid());
+        } catch (Exception e) {
+            String message = "注册失败";
+            if (e instanceof TipException) {
+                message = e.getMessage();
+            } else {
+                LOGGER.error(message, e);
+            }
+            return RestResponseBo.fail(message);
+        }
+        return RestResponseBo.ok();
+    }
+
+
+
 
 
     /**

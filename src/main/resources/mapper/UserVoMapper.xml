@@ -157,6 +157,10 @@
       <if test="groupName != null">
         group_name,
       </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -188,6 +192,9 @@
       </if>
       <if test="groupName != null">
         #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
