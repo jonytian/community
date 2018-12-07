@@ -5,13 +5,16 @@ import com.tyj.community.entity.UserVo;
 import com.tyj.community.entity.UserVoExample;
 import com.tyj.community.exception.TipException;
 import com.tyj.community.service.IUserService;
+import com.tyj.community.utils.SendMessageServer;
 import com.tyj.community.utils.TaleUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,25 +25,25 @@ public class UserServiceImpl implements IUserService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Resource
-    private UserVoMapper userDao;
+    private UserVoMapper userMapper;
 
     @Override
     public Integer insertUser(UserVo userVo) {
         Integer uid = null;
         if (StringUtils.isNotBlank(userVo.getUsername()) ) {
-//            用户密码加密
+            //用户密码加密
             String encodePwd = TaleUtils.MD5encode(userVo.getUsername() + userVo.getPassword());
             userVo.setPassword(encodePwd);
-            userDao.insertSelective(userVo);
+            userMapper.insertSelective(userVo);
         }
-        return userVo.getUid();
+        return userVo.getId();
     }
 
     @Override
     public UserVo queryUserById(Integer uid) {
         UserVo userVo = null;
         if (uid != null) {
-            userVo = userDao.selectByPrimaryKey(uid);
+            userVo = userMapper.selectByPrimaryKey(uid);
         }
         return userVo;
     }
@@ -53,13 +56,13 @@ public class UserServiceImpl implements IUserService {
         UserVoExample example = new UserVoExample();
         UserVoExample.Criteria criteria = example.createCriteria();
         criteria.andUsernameEqualTo(username);
-        long count = userDao.countByExample(example);
+        long count = userMapper.countByExample(example);
         if (count < 1) {
             throw new TipException("不存在该用户");
         }
         String pwd = TaleUtils.MD5encode(username+password);
         criteria.andPasswordEqualTo(pwd);
-        List<UserVo> userVos = userDao.selectByExample(example);
+        List<UserVo> userVos = userMapper.selectByExample(example);
         if (userVos.size()!=1) {
             throw new TipException("用户名或密码错误");
         }
@@ -68,12 +71,17 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void updateByUid(UserVo userVo) {
-        if (null == userVo || null == userVo.getUid()) {
+        if (null == userVo || null == userVo.getId()) {
             throw new TipException("userVo is null");
         }
-        int i = userDao.updateByPrimaryKeySelective(userVo);
+        int i = userMapper.updateByPrimaryKeySelective(userVo);
         if(i!=1){
             throw new TipException("update user by uid and retrun is not one");
         }
     }
+
+
+
+
+
 }

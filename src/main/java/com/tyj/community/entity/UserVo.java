@@ -1,15 +1,17 @@
 package com.tyj.community.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by tyj on 2018/11/27.
  */
 public class UserVo implements Serializable {
+
     /**
-     * user表主键
+     *  用户id
      */
-    private Integer uid;
+    private Integer id;
 
     /**
      * 用户名称
@@ -22,54 +24,79 @@ public class UserVo implements Serializable {
     private String password;
 
     /**
-     * 用户的邮箱
-     */
-    private String email;
-
-    /**
-     * 用户的主页
-     */
-    private String homeUrl;
-
-    /**
-     * 用户显示的名称
-     */
-    private String screenName;
-
-    /**
-     * 用户注册时的GMT unix时间戳
-     */
-    private Integer created;
-
-    /**
-     * 最后活动时间
-     */
-    private Integer activated;
-
-    /**
-     * 上次登录最后活跃时间
-     */
-    private Integer logged;
-
-
-    /**
      * 昵称
      */
     private String nickname;
 
     /**
-     * 用户组
+     * 用户头像
      */
-    private String groupName;
+    private String avatar;
+
+    /**
+     * 性别
+     */
+    private Integer gender;
+
+    /**
+     * 年龄
+     */
+    private Integer age;
+
+    /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 验证码发送时间
+     */
+    private Date sendTime;
+
+    /**
+     * 验证码
+     */
+    private String code;
+
+    /**
+     * 手机验证码
+     */
+    private String mcode;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+
+    /**
+     * 删除时间
+     */
+    private Date deleteTime;
+
+    /**
+     * 版本号
+     */
+    private String version;
+
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -88,6 +115,46 @@ public class UserVo implements Serializable {
         this.password = password;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -96,59 +163,61 @@ public class UserVo implements Serializable {
         this.email = email;
     }
 
-    public String getHomeUrl() {
-        return homeUrl;
+    public Date getSendTime() {
+        return sendTime;
     }
 
-    public void setHomeUrl(String homeUrl) {
-        this.homeUrl = homeUrl;
+    public void setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
     }
 
-    public String getScreenName() {
-        return screenName;
+    public String getMcode() {
+        return mcode;
     }
 
-    public void setScreenName(String screenName) {
-        this.screenName = screenName;
+    public void setMcode(String mcode) {
+        this.mcode = mcode;
     }
 
-    public Integer getCreated() {
-        return created;
+    public String getCode() {
+        return code;
     }
 
-    public void setCreated(Integer created) {
-        this.created = created;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Integer getActivated() {
-        return activated;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setActivated(Integer activated) {
-        this.activated = activated;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Integer getLogged() {
-        return logged;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setLogged(Integer logged) {
-        this.logged = logged;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public Date getDeleteTime() {
+        return deleteTime;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setDeleteTime(Date deleteTime) {
+        this.deleteTime = deleteTime;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getVersion() {
+        return version;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setVersion(String version) {
+        this.version = version;
     }
+
+
 }

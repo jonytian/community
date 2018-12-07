@@ -2,17 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tyj.community.dao.UserVoMapper">
   <resultMap id="BaseResultMap" type="com.tyj.community.entity.UserVo">
-    <id column="uid" jdbcType="INTEGER" property="uid" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="home_url" jdbcType="VARCHAR" property="homeUrl" />
-    <result column="screen_name" jdbcType="VARCHAR" property="screenName" />
-    <result column="created" jdbcType="INTEGER" property="created" />
-    <result column="activated" jdbcType="INTEGER" property="activated" />
-    <result column="logged" jdbcType="INTEGER" property="logged" />
-    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
-    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="username" jdbcType="VARCHAR" property="username"/>
+    <result column="password" jdbcType="VARCHAR" property="password"/>
+    <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+    <result column="gender" jdbcType="INTEGER" property="gender"/>
+    <result column="age" jdbcType="INTEGER" property="age"/>
+    <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+    <result column="email" jdbcType="VARCHAR" property="email"/>
+    <result column="code" jdbcType="VARCHAR" property="code"/>
+    <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+    <result column="send_time" jdbcType="TIMESTAMP" property="sendTime"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="delete_time" jdbcType="TIMESTAMP" property="deleteTime"/>
+    <result column="version" jdbcType="VARCHAR" property="version"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,8 +77,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    uid, username, password, email, home_url, screen_name, created, activated, logged, 
-    group_name
+    id, username, password, nickname, gender, age, mobile, email, code, avatar, send_time, create_time, update_time, delete_time,
+    version
   </sql>
   <select id="selectByExample" parameterType="com.tyj.community.entity.UserVoExample" resultMap="BaseResultMap">
     select
@@ -102,11 +106,11 @@
     select 
     <include refid="Base_Column_List" />
     from t_users
-    where uid = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_users
-    where uid = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.tyj.community.entity.UserVoExample">
     delete from t_users
@@ -114,21 +118,20 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tyj.community.entity.UserVo" useGeneratedKeys="true" keyProperty="uid">
-    insert into t_users (uid, username, password, 
-      email, home_url, screen_name, 
-      created, activated, logged, 
-      group_name)
-    values (#{uid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{homeUrl,jdbcType=VARCHAR}, #{screenName,jdbcType=VARCHAR}, 
-      #{created,jdbcType=INTEGER}, #{activated,jdbcType=INTEGER}, #{logged,jdbcType=INTEGER}, 
-      #{groupName,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.tyj.community.entity.UserVo" useGeneratedKeys="true" keyProperty="id">
+    insert into t_users (id, username, password, nickname, gender, age, mobile, email, code, avatar, sendTime, createTime, updateTime, deleteTime,
+    version)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+    #{gender,jdbcType=INTEGER}, #{age,jdbcType=INTEGER},#{mobile,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+    #{avatar,jdbcType=VARCHAR},
+    #{sendTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP},
+    #{version,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tyj.community.entity.UserVo" useGeneratedKeys="true" keyProperty="uid">
+  <insert id="insertSelective" parameterType="com.tyj.community.entity.UserVo" useGeneratedKeys="true" keyProperty="id">
     insert into t_users
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="uid != null">
-        uid,
+      <if test="id != null">
+        id,
       </if>
       <if test="username != null">
         username,
@@ -136,35 +139,45 @@
       <if test="password != null">
         password,
       </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="homeUrl != null">
-        home_url,
-      </if>
-      <if test="screenName != null">
-        screen_name,
-      </if>
-      <if test="created != null">
-        created,
-      </if>
-      <if test="activated != null">
-        activated,
-      </if>
-      <if test="logged != null">
-        logged,
-      </if>
-      <if test="groupName != null">
-        group_name,
-      </if>
       <if test="nickname != null">
         nickname,
       </if>
-
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="mcode != null">
+        mcode,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="sendTime != null">
+        sendTime,
+      </if>
+        create_time,
+      <if test="updateTime != null">
+        updateTime,
+      </if>
+      <if test="deleteTime != null">
+        deleteTime,
+      </if>
+        version,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="uid != null">
-        #{uid,jdbcType=INTEGER},
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -172,30 +185,41 @@
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="homeUrl != null">
-        #{homeUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="screenName != null">
-        #{screenName,jdbcType=VARCHAR},
-      </if>
-      <if test="created != null">
-        #{created,jdbcType=INTEGER},
-      </if>
-      <if test="activated != null">
-        #{activated,jdbcType=INTEGER},
-      </if>
-      <if test="logged != null">
-        #{logged,jdbcType=INTEGER},
-      </if>
-      <if test="groupName != null">
-        #{groupName,jdbcType=VARCHAR},
-      </if>
       <if test="nickname != null">
         #{nickname,jdbcType=VARCHAR},
       </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mcode != null">
+        #{mcode,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+         now(),
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null">
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+        '1.0',
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.tyj.community.entity.UserVoExample" resultType="java.lang.Long">
@@ -207,8 +231,8 @@
   <update id="updateByExampleSelective" parameterType="map">
     update t_users
     <set>
-      <if test="record.uid != null">
-        uid = #{record.uid,jdbcType=INTEGER},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
@@ -216,26 +240,43 @@
       <if test="record.password != null">
         password = #{record.password,jdbcType=VARCHAR},
       </if>
+      <if test="record.nickname != null">
+        nickname = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null">
+        age = #{record.age,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
       <if test="record.email != null">
         email = #{record.email,jdbcType=VARCHAR},
       </if>
-      <if test="record.homeUrl != null">
-        home_url = #{record.homeUrl,jdbcType=VARCHAR},
+      <if test="record.code != null">
+        code = #{record.code,jdbcType=VARCHAR},
       </if>
-      <if test="record.screenName != null">
-        screen_name = #{record.screenName,jdbcType=VARCHAR},
+      <if test="record.avatar != null">
+        avatar = #{record.avatar,jdbcType=VARCHAR},
       </if>
-      <if test="record.created != null">
-        created = #{record.created,jdbcType=INTEGER},
+      <if test="record.sendTime != null">
+        send_time = #{record.sendTime,jdbcType=INTEGER},
       </if>
-      <if test="record.activated != null">
-        activated = #{record.activated,jdbcType=INTEGER},
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=INTEGER},
       </if>
-      <if test="record.logged != null">
-        logged = #{record.logged,jdbcType=INTEGER},
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=INTEGER},
       </if>
-      <if test="record.groupName != null">
-        group_name = #{record.groupName,jdbcType=VARCHAR},
+      <if test="record.deleteTime != null">
+        delete_Time = #{record.deleteTime,jdbcType=VARCHAR},
+      </if>
+
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -244,16 +285,21 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update t_users
-    set uid = #{record.uid,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR},
-      home_url = #{record.homeUrl,jdbcType=VARCHAR},
-      screen_name = #{record.screenName,jdbcType=VARCHAR},
-      created = #{record.created,jdbcType=INTEGER},
-      activated = #{record.activated,jdbcType=INTEGER},
-      logged = #{record.logged,jdbcType=INTEGER},
-      group_name = #{record.groupName,jdbcType=VARCHAR}
+    nickname = #{record.nickname,jdbcType=VARCHAR},
+    gender = #{record.gender,jdbcType=VARCHAR},
+    age = #{record.age,jdbcType=VARCHAR},
+    mobile = #{record.mobile,jdbcType=VARCHAR},
+    email = #{record.email,jdbcType=VARCHAR},
+    code = #{record.code,jdbcType=VARCHAR},
+    avatar = #{record.avatar,jdbcType=VARCHAR},
+    send_time = #{record.sendTime,jdbcType=TIMESTAMP},
+    create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
+    version = #{record.version,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -261,47 +307,83 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.tyj.community.entity.UserVo">
     update t_users
     <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="homeUrl != null">
-        home_url = #{homeUrl,jdbcType=VARCHAR},
+      <if test="record.nickname != null">
+        nickname = #{record.nickname,jdbcType=VARCHAR},
       </if>
-      <if test="screenName != null">
-        screen_name = #{screenName,jdbcType=VARCHAR},
+
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=VARCHAR},
       </if>
-      <if test="created != null">
-        created = #{created,jdbcType=INTEGER},
+      <if test="record.age != null">
+        age = #{record.age,jdbcType=VARCHAR},
       </if>
-      <if test="activated != null">
-        activated = #{activated,jdbcType=INTEGER},
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=VARCHAR},
       </if>
-      <if test="logged != null">
-        logged = #{logged,jdbcType=INTEGER},
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
-      <if test="groupName != null">
-        group_name = #{groupName,jdbcType=VARCHAR},
+      <if test="record.mcode != null">
+        mcode = #{record.mcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.code != null">
+        code = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.avatar != null">
+        avatar = #{record.avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendTime != null">
+        send_time = #{record.sendTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.deleteTime != null">
+        delete_Time = #{record.deleteTime,jdbcType=VARCHAR},
+      </if>
+
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=VARCHAR},
       </if>
     </set>
-    where uid = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tyj.community.entity.UserVo">
     update t_users
-    set username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      home_url = #{homeUrl,jdbcType=VARCHAR},
-      screen_name = #{screenName,jdbcType=VARCHAR},
-      created = #{created,jdbcType=INTEGER},
-      activated = #{activated,jdbcType=INTEGER},
-      logged = #{logged,jdbcType=INTEGER},
-      group_name = #{groupName,jdbcType=VARCHAR}
-    where uid = #{uid,jdbcType=INTEGER}
+    set id = #{record.id,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+    nickname = #{record.nickname,jdbcType=VARCHAR},
+    gender = #{record.gender,jdbcType=VARCHAR},
+    age = #{record.age,jdbcType=VARCHAR},
+    mobile = #{record.mobile,jdbcType=VARCHAR},
+    email = #{record.email,jdbcType=VARCHAR},
+    code = #{record.code,jdbcType=VARCHAR},
+    avatar = #{record.avatar,jdbcType=VARCHAR},
+    send_time = #{record.sendTime,jdbcType=TIMESTAMP},
+    create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+    delete_time = #{record.deleteTime,jdbcType=TIMESTAMP},
+    version = #{record.version,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--=Start findUser 根据用户名和密码查找用户 -->
+  <select id="findUser" resultType="com.tyj.community.entity.UserVo">
+        select
+        <include refid="Base_Column_List" />
+        from t_users
+        WHERE username=#{username} AND password =#{password}
+    </select>
 </mapper>

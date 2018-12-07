@@ -18,15 +18,15 @@
           <div class="layui-form layui-form-pane">
             <form id="userLogin" class="layui-form" action="">
               <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">用户名</label>
+                <label for="username" class="layui-form-label">用户名</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="username" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="text" id="username" name="username" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
               <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label">密码</label>
+                <label for="password" class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="password" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="password" id="password" name="password" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
 
@@ -64,48 +64,6 @@
             </form>
 
 
-
-            <!--<form id="useLogin" class="layui-form" action="">-->
-              <!--<div class="layui-form-item">-->
-                <!--<label class="layui-form-label">用户名</label>-->
-                <!--<div class="layui-input-inline">-->
-                  <!--<input id="username" name="username" lay-verify="required" autocomplete="off" class="layui-input" type="tel"/>-->
-                <!--</div>-->
-              <!--</div>-->
-
-              <!--<div class="layui-form-item">-->
-                <!--<label class="layui-form-label">密&nbsp;&nbsp;码</label>-->
-                <!--<div class="layui-input-inline">-->
-                  <!--<input id="password" name="password" lay-verify="required" autocomplete="off" class="layui-input" type="password"/>-->
-                <!--</div>-->
-              <!--</div>-->
-
-
-              <!--<div class="layui-form-item">-->
-                <!--<div class="layui-inline">-->
-                  <!--<label class="layui-form-label">验证码</label>-->
-                  <!--<div class="layui-input-inline" style="width: 100px;">-->
-                    <!--<input id="code" name="code" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>-->
-                  <!--</div>-->
-                  <!--<div class="layui-input-inline" style="width: 120px;">-->
-                    <!--<canvas id="canvas" width="120" height="38"></canvas>-->
-                  <!--</div>-->
-                <!--</div>-->
-              <!--</div>-->
-
-
-              <!--<div class="layui-form-item" style="margin-top: -20px;">-->
-                <!--<div class="layui-inline">-->
-                  <!--<input type="checkbox" name="rememberMe" lay-skin="primary"  title="记住我"/>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="layui-form-item">-->
-                <!--<div class="layui-input-block">-->
-                  <!--<button class="layui-btn" type="reset">重置</button>-->
-                  <!--<button id="loginBtn" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="login">登录</button>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</form>-->
           </div>
         </div>
       </div>
@@ -119,6 +77,8 @@
 <script src="../../res/layui/layui.js"></script>
 <script type="text/javascript" src="/js/login.js"></script>
 <script type="text/javascript" src="/js/validate.js"></script>
+<script type="text/javascript" src="/js/checkParam.js"></script>
+
 <script>
 layui.cache.page = 'user';
 layui.cache.user = {

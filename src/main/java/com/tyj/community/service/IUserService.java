@@ -1,6 +1,7 @@
 package com.tyj.community.service;
 
 import com.tyj.community.entity.UserVo;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Created by tyj on 2018/11/27.
@@ -36,4 +37,7 @@ public interface IUserService {
      * @return
      */
     void updateByUid(UserVo userVo);
+
+
+
 }

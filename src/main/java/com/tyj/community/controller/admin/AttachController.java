@@ -76,7 +76,7 @@ public class AttachController extends BaseController {
     @Transactional(rollbackFor = TipException.class)
     public RestResponseBo upload(HttpServletRequest request, @RequestParam("file") MultipartFile[] multipartFiles) throws IOException {
         UserVo users = this.user(request);
-        Integer uid = users.getUid();
+        Integer uid = users.getId();
         List<String> errorFiles = new ArrayList<>();
         try {
             for (MultipartFile multipartFile : multipartFiles) {

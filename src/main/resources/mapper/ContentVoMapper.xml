@@ -97,7 +97,7 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    ,(select u.nickname from t_users u where u.uid=author_id) as author
+    ,(select u.nickname from t_users u where u.id=author_id) as author
     from t_contents
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -116,7 +116,7 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    ,(select u.nickname from t_users u where u.uid=author_id) as author
+    ,(select u.nickname from t_users u where u.id=author_id) as author
     from t_contents
     order by comments_num desc limit 0,9
   </select>

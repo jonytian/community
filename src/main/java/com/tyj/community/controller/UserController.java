@@ -8,6 +8,7 @@ import com.tyj.community.entity.UserVo;
 import com.tyj.community.exception.TipException;
 import com.tyj.community.service.ILogService;
 import com.tyj.community.service.IUserService;
+import com.tyj.community.utils.IStatusMessage;
 import com.tyj.community.utils.ResponseResult;
 import com.tyj.community.utils.TaleUtils;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -63,9 +64,9 @@ public class UserController extends BaseController{
             user = usersService.login(user.getUsername(), user.getPassword());
             request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             if (rememberMe) {
-                TaleUtils.setCookie(response, user.getUid());
+                TaleUtils.setCookie(response, user.getId());
             }
-            logService.insertLog(LogActions.LOGININDEX.getAction(), null, request.getRemoteAddr(), user.getUid());
+            logService.insertLog(LogActions.LOGININDEX.getAction(), null, request.getRemoteAddr(), user.getId());
         } catch (Exception e) {
             error_count = null == error_count ? 1 : error_count + 1;
             if (error_count > 3) {
@@ -106,7 +107,7 @@ public class UserController extends BaseController{
 
         try {
             Integer register  = usersService.insertUser(user);
-            logService.insertLog(LogActions.REGINDEX.getAction(), null, request.getRemoteAddr(), user.getUid());
+            logService.insertLog(LogActions.REGINDEX.getAction(), null, request.getRemoteAddr(), user.getId());
         } catch (Exception e) {
             String message = "注册失败";
             if (e instanceof TipException) {

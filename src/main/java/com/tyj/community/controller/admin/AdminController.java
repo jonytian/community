@@ -90,15 +90,15 @@ public class AdminController extends BaseController {
         UserVo users = this.user(request);
         if (StringUtils.isNotBlank(screenName) && StringUtils.isNotBlank(email)) {
             UserVo temp = new UserVo();
-            temp.setUid(users.getUid());
-            temp.setScreenName(screenName);
+            temp.setId(users.getId());
+            temp.setNickname(screenName);
             temp.setEmail(email);
             userService.updateByUid(temp);
             logService.insertLog(LogActions.UP_INFO.getAction(), GsonUtils.toJsonString(temp), request.getRemoteAddr(), this.getUid(request));
 
             //更新session中的数据
             UserVo original = (UserVo) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
-            original.setScreenName(screenName);
+            original.setNickname(screenName);
             original.setEmail(email);
             session.setAttribute(WebConst.LOGIN_SESSION_KEY, original);
         }
@@ -126,7 +126,7 @@ public class AdminController extends BaseController {
 
         try {
             UserVo temp = new UserVo();
-            temp.setUid(users.getUid());
+            temp.setId(users.getId());
             String pwd = TaleUtils.MD5encode(users.getUsername() + password);
             temp.setPassword(pwd);
             userService.updateByUid(temp);

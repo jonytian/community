@@ -78,7 +78,7 @@ public class PageController extends BaseController {
         if (null != allowPing) {
             contents.setAllowPing(allowPing == 1);
         }
-        contents.setAuthorId(users.getUid());
+        contents.setAuthorId(users.getId());
 
         try {
             contentsService.publish(contents);
@@ -116,7 +116,7 @@ public class PageController extends BaseController {
         if (null != allowPing) {
             contents.setAllowPing(allowPing == 1);
         }
-        contents.setAuthorId(users.getUid());
+        contents.setAuthorId(users.getId());
         try {
             contentsService.updateArticle(contents);
         } catch (Exception e) {

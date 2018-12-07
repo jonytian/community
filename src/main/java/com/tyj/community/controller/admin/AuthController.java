@@ -68,9 +68,9 @@ public class AuthController extends BaseController {
             UserVo user = usersService.login(username, password);
             request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             if (StringUtils.isNotBlank(remeber_me)) {
-                TaleUtils.setCookie(response, user.getUid());
+                TaleUtils.setCookie(response, user.getId());
             }
-            logService.insertLog(LogActions.LOGIN.getAction(), null, request.getRemoteAddr(), user.getUid());
+            logService.insertLog(LogActions.LOGIN.getAction(), null, request.getRemoteAddr(), user.getId());
         } catch (Exception e) {
             error_count = null == error_count ? 1 : error_count + 1;
             if (error_count > 3) {

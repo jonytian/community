@@ -61,3 +61,5 @@ function drawPic(){
     return _picTxt;//返回随机数字符串
 }
 /**end==动态生成验证码**/
+
+

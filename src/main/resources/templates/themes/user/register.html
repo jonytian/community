@@ -18,29 +18,29 @@
           <div class="layui-form layui-form-pane">
             <form id="userRegister" class="layui-form" action="">
               <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">用户名</label>
+                <label for="username" class="layui-form-label">用户名</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="username" required lay-verify="email" autocomplete="off" class="layui-input">
+                  <input type="text" id="username" name="username" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
 
               </div>
               <div class="layui-form-item">
-                <label for="L_username" class="layui-form-label">昵称</label>
+                <label for="nickname" class="layui-form-label">昵称</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_username" name="nickname" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="text" id="nickname" name="nickname" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
               <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label">密码</label>
+                <label for="password" class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="password" required lay-verify="required" placeholder="6到16个字符" autocomplete="off" class="layui-input">
+                  <input type="password" id="password" name="password" required lay-verify="required" placeholder="6到16个字符" autocomplete="off" class="layui-input">
                 </div>
 
               </div>
               <div class="layui-form-item">
-                <label for="L_repass" class="layui-form-label">确认密码</label>
+                <label for="repassword" class="layui-form-label">确认密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" id="L_repass" name="repassword" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="password" id="repassword" name="repassword" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
               </div>
 
@@ -80,6 +80,7 @@
 <script src="../../res/layui/layui.js"></script>
 <script type="text/javascript" src="/js/register.js"></script>
 <script type="text/javascript" src="/js/validate.js"></script>
+<script type="text/javascript" src="/js/checkParam.js"></script>
 <script>
 layui.cache.page = 'user';
 layui.cache.user = {

@@ -45,7 +45,7 @@ public class CommentController extends BaseController {
         UserVo users = this.user(request);
         CommentVoExample commentVoExample = new CommentVoExample();
         commentVoExample.setOrderByClause("coid desc");
-        commentVoExample.createCriteria().andAuthorIdNotEqualTo(users.getUid());
+        commentVoExample.createCriteria().andAuthorIdNotEqualTo(users.getId());
         PageInfo<CommentVo> commentsPaginator = commentsService.getCommentsWithPage(commentVoExample,page, limit);
         request.setAttribute("comments", commentsPaginator);
         return "admin/comment_list";
@@ -127,10 +127,9 @@ public class CommentController extends BaseController {
 
         CommentVo comments = new CommentVo();
         comments.setAuthor(users.getUsername());
-        comments.setAuthorId(users.getUid());
+        comments.setAuthorId(users.getId());
         comments.setCid(c.getCid());
         comments.setIp(request.getRemoteAddr());
-        comments.setUrl(users.getHomeUrl());
         comments.setContent(content);
         comments.setMail(users.getEmail());
         comments.setParent(coid);

@@ -1,25 +1,25 @@
-layui.use('form', function(){
-    var form = layui.form
-	
-    //自定义验证规则
-    form.verify({
-    	qudaoName: [/^(?!_)(?!.*?_$)[_a-zA-Z0-9_\u4e00-\u9fa5]{2,20}$/, '请输入正确格式！'],
-   	  	qudaoEmail: function(value, item){ //value：表单的值、item：表单的DOM对象
-   		    if(value != null && value != ""){
-       		    if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value)){
-       		       return '请输入正确格式！';
-       		    }
-   		    }
-   		  },
-   		reason: function(value, item){ //value：表单的值、item：表单的DOM对象
-   		    if(value != null && value != ""){
-       		    if(!/^(?!_)(?!.*?_$)[,，\.。\-、；;\：:\"“\'！!_a-zA-Z0-9_\u4e00-\u9fa5]{1,50}$/.test(value)){
-       		       return '请输入正确格式！';
-       		    }
-   		    }
-   		  }
-    });
-});
+// layui.use('form', function(){
+//     var form = layui.form
+//
+//     //自定义验证规则
+//     form.verify({
+//     	qudaoName: [/^(?!_)(?!.*?_$)[_a-zA-Z0-9_\u4e00-\u9fa5]{2,20}$/, '请输入正确格式！'],
+//    	  	qudaoEmail: function(value, item){ //value：表单的值、item：表单的DOM对象
+//    		    if(value != null && value != ""){
+//        		    if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value)){
+//        		       return '请输入正确格式！';
+//        		    }
+//    		    }
+//    		  },
+//    		reason: function(value, item){ //value：表单的值、item：表单的DOM对象
+//    		    if(value != null && value != ""){
+//        		    if(!/^(?!_)(?!.*?_$)[,，\.。\-、；;\：:\"“\'！!_a-zA-Z0-9_\u4e00-\u9fa5]{1,50}$/.test(value)){
+//        		       return '请输入正确格式！';
+//        		    }
+//    		    }
+//    		  }
+//     });
+// });
 
 var ValidateUtils = {
     checkMobile:function(umobile){
@@ -84,11 +84,11 @@ var ValidateUtils = {
         if(username==''|| $.trim(username).length==0){
             return "用户名不能为空，请重新填写";
         }
-        if(!username.match(/^(?!_)(?!.*?_$)[,，\.。\-、；;\：:\"“\'！!_a-zA-Z0-9_\u4e00-\u9fa5]{2,25}$/)){
-            $("input[name='userName']").val("");
-            $("input[name='userName']").focus();
-            return "您输入的用户名格式有误，请重新输入！";
-        }
+        // if(!username.match(/^(?!_)(?!.*?_$)[,，\.。\-、；;\：:\"“\'！!_a-zA-Z0-9_\u4e00-\u9fa5]{2,25}$/)){
+        //     $("input[name='userName']").val("");
+        //     $("input[name='userName']").focus();
+        //     return "您输入的用户名格式有误，请重新输入！";
+        // }
         return "ok";
     },
     checkRoleCode :function(code){

@@ -33,4 +33,7 @@ public interface UserVoMapper {
     int updateByPrimaryKeySelective(UserVo record);
 
     int updateByPrimaryKey(UserVo record);
+
+    UserVo findUser(@Param("username") String username,
+                  @Param("password") String password);
 }
