@@ -104,7 +104,7 @@
         </ul>
         <div style="text-align: center">
           <div class="laypage-main">
-            <a href="jie/index"  class="laypage-next">更多求解</a>
+            <a href="content/article" class="laypage-next">更多求解</a>
           </div>
         </div>
 
@@ -167,7 +167,7 @@
         <dt class="fly-panel-title">本周热议</dt>
         <th:block th:each="hotArticle: ${hotArticles}">
           <dd>
-            <a href="jie/detail" th:text="${hotArticle.title}"></a>
+            <a href="content/article/detail" th:text="${hotArticle.title}"></a>
             <span>
               <i class="iconfont icon-pinglun1"></i>
               <i th:text="${hotArticle.commentsNum}"></i>

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.tyj.community.constant.WebConst;
 
 import com.tyj.community.dto.ErrorCode;
+import com.tyj.community.dto.LogActions;
 import com.tyj.community.dto.MetaDto;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.*;
@@ -104,7 +105,7 @@ public class IndexController extends BaseController{
         request.setAttribute("is_post", true);
         completeArticle(request, contents);
         updateArticleHit(contents.getCid(), contents.getHits());
-          return this.render("jie/detail");
+          return this.render("article/detail");
     }
 
     /**
@@ -416,20 +417,38 @@ public class IndexController extends BaseController{
     }
 
     /**
-     *  jie add
+     *  article post
      * @return
      */
-    @RequestMapping("jie/add")
-    public String add() {
-        return this.render("jie/add");
+    @RequestMapping("jie/post")
+    public String post() {
+        return this.render("article/post");
     }
 
+
     /**
-     *  jie index
+     * 发布帖子
+     * @param user
+     * @return
+     */
+    @RequestMapping(value = "jie/post", method = RequestMethod.POST)
+    @ResponseBody
+    public RestResponseBo post(
+            UserVo user,
+            HttpServletRequest request, HttpServletResponse response) {
+
+
+        return RestResponseBo.ok();
+    }
+
+
+
+    /**
+     *  article index
      * @return
      */
     @RequestMapping("jie/index")
     public String home() {
-        return this.render("jie/index");
+        return this.render("article/index");
     }
 }

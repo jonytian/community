@@ -21,16 +21,16 @@
         <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li> 
         
         <!-- 用户登入后显示 -->
-        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html">我发表的贴</a></li> 
-        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html#collection">我收藏的贴</a></li> 
+        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html">我发表的贴</a></li>
+        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html#collection">我收藏的贴</a></li>
       </ul> 
       
       <div class="fly-column-right layui-hide-xs"> 
         <span class="fly-search"><i class="layui-icon"></i></span> 
-        <a href="add.html" class="layui-btn">发表新帖</a> 
+        <a href="publish.html" class="layui-btn">发表新帖</a>
       </div> 
       <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;"> 
-        <a href="add.html" class="layui-btn">发表新帖</a> 
+        <a href="publish.html" class="layui-btn">发表新帖</a>
       </div> 
     </div>
   </div>
@@ -55,10 +55,10 @@
             <span class="layui-btn layui-btn-xs jie-admin" type="del">删除</span>
             
             <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="1">置顶</span> 
-            <!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">取消置顶</span> -->
+            <!-- <span class="layui-btn layui-btn-xs article-admin" type="set" field="stick" rank="0" style="background-color:#ccc;">取消置顶</span> -->
             
             <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="1">加精</span> 
-            <!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span> -->
+            <!-- <span class="layui-btn layui-btn-xs article-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span> -->
           </div>
           <span class="fly-list-nums"> 
             <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> 66</a>
@@ -66,11 +66,11 @@
           </span>
         </div>
         <div class="detail-about">
-          <a class="fly-avatar" href="../user/home.html">
+          <a class="fly-avatar" href="user/home.html">
             <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt="贤心">
           </a>
           <div class="fly-detail-user">
-            <a href="../user/home.html" class="fly-link">
+            <a href="user/home.html" class="fly-link">
               <cite th:text="${article.author}"></cite>
               <i class="iconfont icon-renzheng" title="认证信息：{{ rows.user.approve }}"></i>
               <i class="layui-badge fly-badge-vip">VIP3</i>
@@ -79,7 +79,7 @@
           </div>
           <div class="detail-hits" id="LAY_jieAdmin" data-id="123">
             <span style="padding-right: 10px; color: #FF7200">悬赏：60飞吻</span>  
-            <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="add.html">编辑此贴</a></span>
+            <span class="layui-btn layui-btn-xs jie-admin" type="edit"><a href="publish.html">编辑此贴</a></span>
           </div>
         </div>
         <div class="detail-body photos">
