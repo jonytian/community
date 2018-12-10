@@ -6,7 +6,7 @@ layui.use('flow', function(){
         ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
             var lis = [];
             //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
-            $.get('/image/'+page , function(res){
+            $.get('/image/'+page, function(res){
                 //假设你的列表返回在data集合中
                 layui.each(res.list, function(index, item){
 
@@ -21,21 +21,3 @@ layui.use('flow', function(){
     });
 });
 
-function previewImg(obj) {
-    var img = new Image();
-    img.src = obj.src;
-    alert(img.src);
-    var imgHtml = "<img src='" + obj.src + "' />";
-    //捕获页
-    layer.open({
-        type: 1,
-        shade: false,
-        title: false, //不显示标题
-        //area:['600px','500px'],
-        area: [600+'px', 480+'px'],
-        content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
-        cancel: function () {
-            //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });
-        }
-    });
-}
