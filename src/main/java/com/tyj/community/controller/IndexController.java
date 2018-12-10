@@ -37,7 +37,6 @@ import java.util.List;
  * 首页
  * Created by tyj on 2018/11/27.
  */
-
 @Controller
 public class IndexController extends BaseController{
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
@@ -63,6 +62,22 @@ public class IndexController extends BaseController{
         return this.index(request, 1, limit);
     }
 
+    @RequestMapping("image")
+    public String image() {
+        return this.render("content/image/index");
+    }
+
+    @GetMapping(value = "image/{p}")
+    @ResponseBody
+    public PageInfo getImage(HttpServletRequest request, @PathVariable int p ) {
+        p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
+        Integer limit = 10;
+        PageInfo<ContentVo> articles = contentService.getContents(p, limit);
+
+
+
+        return articles;
+    }
     /**
      * 首页内容
      * @param request request
@@ -105,7 +120,7 @@ public class IndexController extends BaseController{
         request.setAttribute("is_post", true);
         completeArticle(request, contents);
         updateArticleHit(contents.getCid(), contents.getHits());
-          return this.render("article/detail");
+          return this.render("content/text/detail");
     }
 
     /**
@@ -420,9 +435,9 @@ public class IndexController extends BaseController{
      *  article post
      * @return
      */
-    @RequestMapping("jie/post")
+    @RequestMapping("publish")
     public String post() {
-        return this.render("article/post");
+        return this.render("content/text/publish");
     }
 
 
@@ -431,7 +446,7 @@ public class IndexController extends BaseController{
      * @param user
      * @return
      */
-    @RequestMapping(value = "jie/post", method = RequestMethod.POST)
+    @RequestMapping(value = "publish", method = RequestMethod.POST)
     @ResponseBody
     public RestResponseBo post(
             UserVo user,
@@ -447,8 +462,8 @@ public class IndexController extends BaseController{
      *  article index
      * @return
      */
-    @RequestMapping("jie/index")
+    @RequestMapping("publish/index")
     public String home() {
-        return this.render("article/index");
+        return this.render("content/text/index");
     }
 }

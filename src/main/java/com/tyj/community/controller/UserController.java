@@ -29,7 +29,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 @Controller
-@RequestMapping("/user")
 public class UserController extends BaseController{
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
     @Autowired
