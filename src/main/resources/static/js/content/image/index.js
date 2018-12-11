@@ -1,7 +1,8 @@
 layui.use('flow', function(){
     var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
     var flow = layui.flow;
-    flow.load({
+
+    flow.lazyimg({
         elem: '#demo' //指定列表容器
         ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
             var lis = [];
@@ -10,7 +11,10 @@ layui.use('flow', function(){
                 //假设你的列表返回在data集合中
                 layui.each(res.list, function(index, item){
 
-                    lis.push('<li>'+ item.title +'</li>');
+                    var src = 'http://mpic.spriteapp.cn/x/640x400/ugc/2018/12/10/5c0e789d8f84f_1.jpg';
+
+                    lis.push('<li><img lay-src="'+ src +'"></li>');
+
                 });
 
                 //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页

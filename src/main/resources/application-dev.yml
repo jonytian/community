@@ -63,4 +63,4 @@ logging:
     com.tyj.community.dao : DEBUG
 
 swagger:
-  show: true
+   show: true

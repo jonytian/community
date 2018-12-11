@@ -92,6 +92,9 @@ public class ContentVo implements Serializable {
      */
     private String content;
 
+
+
+
     /**
      * 是否置顶：0不置顶 1置顶
      */
@@ -242,4 +245,6 @@ public class ContentVo implements Serializable {
     public void setStick(Integer stick) {
         this.stick = stick;
     }
+
+
 }

@@ -120,7 +120,7 @@ public class IndexController extends BaseController{
         request.setAttribute("is_post", true);
         completeArticle(request, contents);
         updateArticleHit(contents.getCid(), contents.getHits());
-          return this.render("content/text/detail");
+        return this.render("content/text/detail");
     }
 
     /**
