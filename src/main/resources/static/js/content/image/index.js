@@ -2,8 +2,8 @@ layui.use('flow', function(){
     var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
     var flow = layui.flow;
 
-    flow.lazyimg({
-        elem: '#demo' //指定列表容器
+    flow.load({
+        elem: '.fly-list' //指定列表容器
         ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
             var lis = [];
             //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
@@ -13,7 +13,24 @@ layui.use('flow', function(){
 
                     var src = 'http://mpic.spriteapp.cn/x/640x400/ugc/2018/12/10/5c0e789d8f84f_1.jpg';
 
-                    lis.push('<li><img lay-src="'+ src +'"></li>');
+                    lis.push('<a href="'+'111' +'" style="background: #fff;" class="lr1 clearfix">' +
+                        '<img id="img" src="' + src + '" alt="">' +
+                        '<div class="zj clearfix">' +
+                        '<span class="keer">' + item.author + '</span>' +
+                        '<span class="keer1">' +
+
+                        '<span id="pp">' + item.hits + '</span>' +
+                        '</span>' +
+                        '</div>' +
+                        '<div class="pi clearfix">' +
+                        '<span>' + item.title + '</span>' +
+                        '</div>' +
+                        '</a>'+
+                        '<img id="img1" src="http://mpic.spriteapp.cn/x/640x400/ugc/2018/12/10/5c0e789d8f84f_1.jpg" alt="">'
+
+                    );
+
+
 
                 });
 
