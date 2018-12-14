@@ -1,12 +1,12 @@
 package com.tyj.community.utils;
 
 import com.github.pagehelper.PageInfo;
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.dto.MetaDto;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.CommentVo;
 import com.tyj.community.entity.ContentVo;
-import com.tyj.community.service.ISiteService;
+import com.tyj.community.service.SiteService;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
@@ -25,13 +25,13 @@ import java.util.regex.Pattern;
 @Component
 public final class Commons {
 
-    private static ISiteService siteService;
+    private static SiteService siteService;
 
     public static String THEME = "themes/default";
 
     private static final List EMPTY = new ArrayList(0);
 
-    public static void setSiteService(ISiteService ss) {
+    public static void setSiteService(SiteService ss) {
         siteService = ss;
     }
 
@@ -107,7 +107,7 @@ public final class Commons {
         if (StringUtils.isBlank(key)) {
             return "";
         }
-        String str = WebConst.initConfig.get(key);
+        String str = WebConstant.initConfig.get(key);
         if (StringUtils.isNotBlank(str)) {
             return str;
         } else {
@@ -346,7 +346,7 @@ public final class Commons {
      * @return
      */
     public static List<MetaDto> categries() {
-        return categries(WebConst.MAX_POSTS);
+        return categries(WebConstant.MAX_POSTS);
     }
 
     /**
@@ -364,7 +364,7 @@ public final class Commons {
      * @return
      */
     public static List<MetaDto> tags() {
-        return tags(WebConst.MAX_POSTS);
+        return tags(WebConstant.MAX_POSTS);
     }
 
     /**
@@ -437,10 +437,10 @@ public final class Commons {
     public static Map<String, String> social() {
         final String prefix = "social_";
         Map<String, String> map = new HashMap<>();
-        map.put("weibo", WebConst.initConfig.get(prefix + "weibo"));
-        map.put("zhihu", WebConst.initConfig.get(prefix + "zhihu"));
-        map.put("github", WebConst.initConfig.get(prefix + "github"));
-        map.put("twitter", WebConst.initConfig.get(prefix + "twitter"));
+        map.put("weibo", WebConstant.initConfig.get(prefix + "weibo"));
+        map.put("zhihu", WebConstant.initConfig.get(prefix + "zhihu"));
+        map.put("github", WebConstant.initConfig.get(prefix + "github"));
+        map.put("twitter", WebConstant.initConfig.get(prefix + "twitter"));
         return map;
     }
 

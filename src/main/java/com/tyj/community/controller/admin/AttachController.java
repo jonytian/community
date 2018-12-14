@@ -1,7 +1,7 @@
 package com.tyj.community.controller.admin;
 
 import com.github.pagehelper.PageInfo;
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.BaseController;
 import com.tyj.community.dto.LogActions;
 import com.tyj.community.dto.Types;
@@ -9,8 +9,8 @@ import com.tyj.community.entity.AttachVo;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.entity.UserVo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IAttachService;
-import com.tyj.community.service.ILogService;
+import com.tyj.community.service.AttachService;
+import com.tyj.community.service.LogService;
 import com.tyj.community.utils.Commons;
 import com.tyj.community.utils.TaleUtils;
 import org.slf4j.Logger;
@@ -42,10 +42,10 @@ public class AttachController extends BaseController {
     public static final String CLASSPATH = TaleUtils.getUplodFilePath();
 
     @Resource
-    private IAttachService attachService;
+    private AttachService attachService;
 
     @Resource
-    private ILogService logService;
+    private LogService logService;
 
     /**
      * 附件页面
@@ -61,7 +61,7 @@ public class AttachController extends BaseController {
         PageInfo<AttachVo> attachPaginator = attachService.getAttachs(page, limit);
         request.setAttribute("attachs", attachPaginator);
         request.setAttribute(Types.ATTACH_URL.getType(), Commons.site_option(Types.ATTACH_URL.getType(), Commons.site_url()));
-        request.setAttribute("max_file_size", WebConst.MAX_FILE_SIZE / 1024);
+        request.setAttribute("max_file_size", WebConstant.MAX_FILE_SIZE / 1024);
         return "admin/attach";
     }
 
@@ -81,7 +81,7 @@ public class AttachController extends BaseController {
         try {
             for (MultipartFile multipartFile : multipartFiles) {
                 String fname = multipartFile.getOriginalFilename();
-                if (multipartFile.getSize() <= WebConst.MAX_FILE_SIZE) {
+                if (multipartFile.getSize() <= WebConstant.MAX_FILE_SIZE) {
                    String fkey = "";
                     String ftype = TaleUtils.isImage(multipartFile.getInputStream()) ? Types.IMAGE.getType() : Types.FILE.getType();
                     File file = new File(CLASSPATH+fkey);

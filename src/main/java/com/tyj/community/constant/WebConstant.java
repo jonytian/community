@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by tyj on 2018/11/27.
  */
 @Component
-public class WebConst {
+public class WebConstant {
     /**
      * 存储安装信息的配置文件名称
      */

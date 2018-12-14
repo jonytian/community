@@ -1,15 +1,15 @@
 package com.tyj.community.controller.admin;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.BaseController;
 import com.tyj.community.dto.LogActions;
 import com.tyj.community.entity.BackResponseBo;
 import com.tyj.community.entity.OptionVo;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ILogService;
-import com.tyj.community.service.IOptionService;
-import com.tyj.community.service.ISiteService;
+import com.tyj.community.service.LogService;
+import com.tyj.community.service.OptionService;
+import com.tyj.community.service.SiteService;
 import com.tyj.community.utils.GsonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -33,13 +33,13 @@ public class SettingController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(SettingController.class);
 
     @Resource
-    private IOptionService optionService;
+    private OptionService optionService;
 
     @Resource
-    private ILogService logService;
+    private LogService logService;
 
     @Resource
-    private ISiteService siteService;
+    private SiteService siteService;
 
     /**
      * 系统设置
@@ -71,7 +71,7 @@ public class SettingController extends BaseController {
 
             optionService.saveOptions(querys);
 
-            WebConst.initConfig = querys;
+            WebConstant.initConfig = querys;
 
             if (StringUtils.isNotBlank(site_theme)) {
                 BaseController.THEME = "themes/" + site_theme;

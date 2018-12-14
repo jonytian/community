@@ -1,12 +1,12 @@
 package com.tyj.community.controller.admin;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.BaseController;
 import com.tyj.community.dto.MetaDto;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IMetaService;
+import com.tyj.community.service.MetaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -27,7 +27,7 @@ public class CategoryController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(CategoryController.class);
 
     @Resource
-    private IMetaService metasService;
+    private MetaService metasService;
 
     /**
      * 分类页
@@ -36,8 +36,8 @@ public class CategoryController extends BaseController {
      */
     @GetMapping(value = "")
     public String index(HttpServletRequest request) {
-        List<MetaDto> categories = metasService.getMetaList(Types.CATEGORY.getType(), null, WebConst.MAX_POSTS);
-        List<MetaDto> tags = metasService.getMetaList(Types.TAG.getType(),  null, WebConst.MAX_POSTS);
+        List<MetaDto> categories = metasService.getMetaList(Types.CATEGORY.getType(), null, WebConstant.MAX_POSTS);
+        List<MetaDto> tags = metasService.getMetaList(Types.TAG.getType(),  null, WebConstant.MAX_POSTS);
         request.setAttribute("categories", categories);
         request.setAttribute("tags", tags);
         return "admin/category";

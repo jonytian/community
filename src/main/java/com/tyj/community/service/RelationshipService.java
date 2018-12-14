@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by tyj on 2018/11/28.
  */
-public interface IRelationshipService {
+public interface RelationshipService {
     /**
      * 按住键删除
      * @param cid

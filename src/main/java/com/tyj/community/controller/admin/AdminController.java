@@ -1,13 +1,13 @@
 package com.tyj.community.controller.admin;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.BaseController;
 import com.tyj.community.dto.LogActions;
 import com.tyj.community.entity.*;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ILogService;
-import com.tyj.community.service.ISiteService;
-import com.tyj.community.service.IUserService;
+import com.tyj.community.service.LogService;
+import com.tyj.community.service.SiteService;
+import com.tyj.community.service.UserService;
 import com.tyj.community.utils.GsonUtils;
 import com.tyj.community.utils.TaleUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -31,13 +31,13 @@ public class AdminController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(AdminController.class);
 
     @Resource
-    private ISiteService siteService;
+    private SiteService siteService;
 
     @Resource
-    private ILogService logService;
+    private LogService logService;
 
     @Resource
-    private IUserService userService;
+    private UserService userService;
 
     /**
      * 页面跳转
@@ -97,10 +97,10 @@ public class AdminController extends BaseController {
             logService.insertLog(LogActions.UP_INFO.getAction(), GsonUtils.toJsonString(temp), request.getRemoteAddr(), this.getUid(request));
 
             //更新session中的数据
-            UserVo original = (UserVo) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
+            UserVo original = (UserVo) session.getAttribute(WebConstant.LOGIN_SESSION_KEY);
             original.setNickname(screenName);
             original.setEmail(email);
-            session.setAttribute(WebConst.LOGIN_SESSION_KEY, original);
+            session.setAttribute(WebConstant.LOGIN_SESSION_KEY, original);
         }
         return RestResponseBo.ok();
     }
@@ -133,9 +133,9 @@ public class AdminController extends BaseController {
             logService.insertLog(LogActions.UP_PWD.getAction(), null, request.getRemoteAddr(), this.getUid(request));
 
             //更新session中的数据
-            UserVo original= (UserVo)session.getAttribute(WebConst.LOGIN_SESSION_KEY);
+            UserVo original= (UserVo)session.getAttribute(WebConstant.LOGIN_SESSION_KEY);
             original.setPassword(pwd);
-            session.setAttribute(WebConst.LOGIN_SESSION_KEY,original);
+            session.setAttribute(WebConstant.LOGIN_SESSION_KEY,original);
             return RestResponseBo.ok();
         } catch (Exception e){
             String msg = "密码修改失败";

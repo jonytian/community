@@ -4,24 +4,21 @@ import com.tyj.community.dao.UserVoMapper;
 import com.tyj.community.entity.UserVo;
 import com.tyj.community.entity.UserVoExample;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IUserService;
-import com.tyj.community.utils.SendMessageServer;
+import com.tyj.community.service.UserService;
 import com.tyj.community.utils.TaleUtils;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by tyj on 2018/11/27.
  */
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Resource

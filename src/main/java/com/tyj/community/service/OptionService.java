@@ -9,7 +9,7 @@ import java.util.Map;
  * options的接口
  * Created by tyj on 2018/11/28.
  */
-public interface IOptionService {
+public interface OptionService {
 
     void insertOption(OptionVo optionVo);
 

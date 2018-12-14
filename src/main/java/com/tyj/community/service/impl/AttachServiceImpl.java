@@ -5,7 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.tyj.community.dao.AttachVoMapper;
 import com.tyj.community.entity.AttachVo;
 import com.tyj.community.entity.AttachVoExample;
-import com.tyj.community.service.IAttachService;
+import com.tyj.community.service.AttachService;
 import com.tyj.community.utils.DateKit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ import java.util.List;
  * Created by tyj on 2018/11/28.
  */
 @Service
-public class AttachServiceImpl implements IAttachService {
+public class AttachServiceImpl implements AttachService {
     private static final Logger LOGGER = LoggerFactory.getLogger(AttachServiceImpl.class);
 
     @Resource

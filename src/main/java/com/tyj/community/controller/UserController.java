@@ -1,40 +1,33 @@
 package com.tyj.community.controller;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.admin.AuthController;
 import com.tyj.community.dto.LogActions;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.entity.UserVo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ILogService;
-import com.tyj.community.service.IUserService;
-import com.tyj.community.utils.IStatusMessage;
-import com.tyj.community.utils.ResponseResult;
+import com.tyj.community.service.LogService;
+import com.tyj.community.service.UserService;
 import com.tyj.community.utils.TaleUtils;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.security.auth.Subject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by tyj on 2018/12/03.
  */
-
 @Controller
 public class UserController extends BaseController{
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
     @Autowired
-    private IUserService usersService;
+    private UserService usersService;
     @Autowired
-    private ILogService logService;
+    private LogService logService;
 
     /**
      * 用户登录
@@ -61,7 +54,7 @@ public class UserController extends BaseController{
         Integer error_count = cache.get("login_error_count");
         try {
             user = usersService.login(user.getUsername(), user.getPassword());
-            request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
+            request.getSession().setAttribute(WebConstant.LOGIN_SESSION_KEY, user);
             if (rememberMe) {
                 TaleUtils.setCookie(response, user.getId());
             }
@@ -118,8 +111,6 @@ public class UserController extends BaseController{
         }
         return RestResponseBo.ok();
     }
-
-
 
 
 

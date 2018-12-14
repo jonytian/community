@@ -7,7 +7,7 @@ import com.tyj.community.entity.CommentVoExample;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.entity.UserVo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ICommentService;
+import com.tyj.community.service.CommentService;
 import com.tyj.community.utils.TaleUtils;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
@@ -30,7 +30,7 @@ public class CommentController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(CommentController.class);
 
     @Resource
-    private ICommentService commentsService;
+    private CommentService commentsService;
 
     /**
      * 评论列表

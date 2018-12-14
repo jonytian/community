@@ -6,9 +6,9 @@ import com.tyj.community.dto.LogActions;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.*;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IContentService;
-import com.tyj.community.service.ILogService;
-import com.tyj.community.service.IMetaService;
+import com.tyj.community.service.ContentService;
+import com.tyj.community.service.LogService;
+import com.tyj.community.service.MetaService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,13 +31,13 @@ public class ArticleController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ArticleController.class);
 
     @Resource
-    private IContentService contentsService;
+    private ContentService contentsService;
 
     @Resource
-    private IMetaService metasService;
+    private MetaService metasService;
 
     @Resource
-    private ILogService logService;
+    private LogService logService;
 
     /**
      * 文章列表

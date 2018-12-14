@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 /**
  * Created by tyj on 2018/11/27.
  */
-public interface IUserService {
+public interface UserService {
     /**
      * 保存用户数据
      *

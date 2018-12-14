@@ -3,13 +3,13 @@ package com.tyj.community.utils;
 /**
  * Created by tyj on 2018/08/15.
  */
-public interface IStatusMessage {
+public interface StatusMessage {
 	
 	String getCode();
 
 	String getMessage();
 	
-	public enum SystemStatus implements IStatusMessage{
+	public enum SystemStatus implements StatusMessage {
 
 		SUCCESS("1000","SUCCESS"), //请求成功
 		ERROR("1001","ERROR"),	   //请求失败

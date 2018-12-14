@@ -1,7 +1,7 @@
 package com.tyj.community.controller.admin;
 
 import com.github.pagehelper.PageInfo;
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.BaseController;
 import com.tyj.community.dto.LogActions;
 import com.tyj.community.dto.Types;
@@ -10,8 +10,8 @@ import com.tyj.community.entity.ContentVoExample;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.entity.UserVo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IContentService;
-import com.tyj.community.service.ILogService;
+import com.tyj.community.service.ContentService;
+import com.tyj.community.service.LogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -31,17 +31,17 @@ public class PageController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PageController.class);
 
     @Resource
-    private IContentService contentsService;
+    private ContentService contentsService;
 
     @Resource
-    private ILogService logService;
+    private LogService logService;
 
     @GetMapping(value = "")
     public String index(HttpServletRequest request) {
         ContentVoExample contentVoExample = new ContentVoExample();
         contentVoExample.setOrderByClause("created desc");
         contentVoExample.createCriteria().andTypeEqualTo(Types.PAGE.getType());
-        PageInfo<ContentVo> contentsPaginator = contentsService.getArticlesWithpage(contentVoExample, 1, WebConst.MAX_POSTS);
+        PageInfo<ContentVo> contentsPaginator = contentsService.getArticlesWithpage(contentVoExample, 1, WebConstant.MAX_POSTS);
         request.setAttribute("articles", contentsPaginator);
         return "admin/page_list";
     }

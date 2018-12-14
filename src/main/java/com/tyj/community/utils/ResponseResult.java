@@ -15,11 +15,11 @@ public class ResponseResult implements Serializable {
 	private Object object;
 	
 	public ResponseResult() {
-		this.code = IStatusMessage.SystemStatus.SUCCESS.getCode();
-		this.message = IStatusMessage.SystemStatus.SUCCESS.getMessage();
+		this.code = StatusMessage.SystemStatus.SUCCESS.getCode();
+		this.message = StatusMessage.SystemStatus.SUCCESS.getMessage();
 	}
 	
-	public ResponseResult(IStatusMessage statusMessage){
+	public ResponseResult(StatusMessage statusMessage){
 		this.code = statusMessage.getCode();
 		this.message = statusMessage.getMessage();
 		

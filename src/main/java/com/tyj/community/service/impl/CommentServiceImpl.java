@@ -8,8 +8,8 @@ import com.tyj.community.entity.CommentVo;
 import com.tyj.community.entity.CommentVoExample;
 import com.tyj.community.entity.ContentVo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ICommentService;
-import com.tyj.community.service.IContentService;
+import com.tyj.community.service.CommentService;
+import com.tyj.community.service.ContentService;
 import com.tyj.community.utils.DateKit;
 import com.tyj.community.utils.TaleUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -25,14 +25,14 @@ import java.util.List;
  * Created by tyj on 2018/11/28.
  */
 @Service
-public class CommentServiceImpl implements ICommentService {
+public class CommentServiceImpl implements CommentService {
     private static final Logger LOGGER = LoggerFactory.getLogger(CommentServiceImpl.class);
 
     @Resource
     private CommentVoMapper commentDao;
 
     @Resource
-    private IContentService contentService;
+    private ContentService contentService;
 
     @Override
     public void insertComment(CommentVo comments) {

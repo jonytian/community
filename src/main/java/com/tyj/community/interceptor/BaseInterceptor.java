@@ -1,9 +1,9 @@
 package com.tyj.community.interceptor;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.UserVo;
-import com.tyj.community.service.IUserService;
+import com.tyj.community.service.UserService;
 import com.tyj.community.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public class BaseInterceptor implements HandlerInterceptor {
     private static final String USER_AGENT = "user-agent";
 
     @Resource
-    private IUserService userService;
+    private UserService userService;
 
     private MapCache cache = MapCache.single();
 
@@ -51,7 +51,7 @@ public class BaseInterceptor implements HandlerInterceptor {
             if (null != uid) {
                 //这里还是有安全隐患,cookie是可以伪造的
                 user = userService.queryUserById(uid);
-                request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
+                request.getSession().setAttribute(WebConstant.LOGIN_SESSION_KEY, user);
             }
         }
         if (uri.startsWith("/admin") && !uri.startsWith("/admin/login") && null == user) {

@@ -1,13 +1,13 @@
 package com.tyj.community.controller.admin;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.BaseController;
 import com.tyj.community.dto.LogActions;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.entity.UserVo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ILogService;
-import com.tyj.community.service.IUserService;
+import com.tyj.community.service.LogService;
+import com.tyj.community.service.UserService;
 import com.tyj.community.utils.Commons;
 import com.tyj.community.utils.TaleUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -18,7 +18,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,10 +34,10 @@ public class AuthController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
-    private IUserService usersService;
+    private UserService usersService;
 
     @Autowired
-    private ILogService logService;
+    private LogService logService;
 
     @RequestMapping(value = "/login")
     public String login() {
@@ -66,7 +65,7 @@ public class AuthController extends BaseController {
         Integer error_count = cache.get("login_error_count");
         try {
             UserVo user = usersService.login(username, password);
-            request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
+            request.getSession().setAttribute(WebConstant.LOGIN_SESSION_KEY, user);
             if (StringUtils.isNotBlank(remeber_me)) {
                 TaleUtils.setCookie(response, user.getId());
             }
@@ -95,8 +94,8 @@ public class AuthController extends BaseController {
      */
     @RequestMapping("/logout")
     public void logout(HttpSession session, HttpServletResponse response, HttpServletRequest request) {
-        session.removeAttribute(WebConst.LOGIN_SESSION_KEY);
-        Cookie cookie = new Cookie(WebConst.USER_IN_COOKIE, "");
+        session.removeAttribute(WebConstant.LOGIN_SESSION_KEY);
+        Cookie cookie = new Cookie(WebConstant.USER_IN_COOKIE, "");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         try {

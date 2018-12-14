@@ -6,7 +6,7 @@ import com.tyj.community.entity.AttachVo;
 /**
  * Created by tyj on 2018/11/28.
  */
-public interface IAttachService {
+public interface AttachService {
     /**
      * 分页查询附件
      * @param page

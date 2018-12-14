@@ -3,7 +3,7 @@ package com.tyj.community.service.impl;
 import com.tyj.community.dao.RelationshipVoMapper;
 import com.tyj.community.entity.RelationshipVoExample;
 import com.tyj.community.entity.RelationshipVoKey;
-import com.tyj.community.service.IRelationshipService;
+import com.tyj.community.service.RelationshipService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by tyj on 2018/11/28.
  */
 @Service
-public class RelationshipServiceImpl implements IRelationshipService {
+public class RelationshipServiceImpl implements RelationshipService {
     private static final Logger LOGGER = LoggerFactory.getLogger(RelationshipServiceImpl.class);
 
     @Resource

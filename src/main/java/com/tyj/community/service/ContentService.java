@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by tyj on 2018/11/28.
  */
-public interface IContentService {
+public interface ContentService {
 
 //    /**
 //     * 保存文章

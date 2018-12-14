@@ -2,16 +2,16 @@ package com.tyj.community.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.dao.ContentVoMapper;
 import com.tyj.community.dao.MetaVoMapper;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.ContentVo;
 import com.tyj.community.entity.ContentVoExample;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IContentService;
-import com.tyj.community.service.IMetaService;
-import com.tyj.community.service.IRelationshipService;
+import com.tyj.community.service.ContentService;
+import com.tyj.community.service.MetaService;
+import com.tyj.community.service.RelationshipService;
 import com.tyj.community.utils.DateKit;
 import com.tyj.community.utils.TaleUtils;
 import com.tyj.community.utils.Tools;
@@ -28,7 +28,7 @@ import java.util.List;
  * Created by tyj on 2018/11/28.
  */
 @Service
-public class ContentServiceImpl implements IContentService {
+public class ContentServiceImpl implements ContentService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ContentServiceImpl.class);
 
     @Resource
@@ -38,10 +38,10 @@ public class ContentServiceImpl implements IContentService {
     private MetaVoMapper metaDao;
 
     @Resource
-    private IRelationshipService relationshipService;
+    private RelationshipService relationshipService;
 
     @Resource
-    private IMetaService metasService;
+    private MetaService metasService;
 
     @Override
     public void publish(ContentVo contents) {
@@ -55,11 +55,11 @@ public class ContentServiceImpl implements IContentService {
             throw new TipException("文章内容不能为空");
         }
         int titleLength = contents.getTitle().length();
-        if (titleLength > WebConst.MAX_TITLE_COUNT) {
+        if (titleLength > WebConstant.MAX_TITLE_COUNT) {
             throw new TipException("文章标题过长");
         }
         int contentLength = contents.getContent().length();
-        if (contentLength > WebConst.MAX_TEXT_COUNT) {
+        if (contentLength > WebConstant.MAX_TEXT_COUNT) {
             throw new TipException("文章内容过长");
         }
         if (null == contents.getAuthorId()) {

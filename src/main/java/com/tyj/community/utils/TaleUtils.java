@@ -1,15 +1,13 @@
 package com.tyj.community.utils;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.entity.UserVo;
-import com.tyj.community.exception.TipException;
 import org.apache.commons.lang3.StringUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.Cookie;
@@ -23,7 +21,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.Normalizer;
 import java.util.Date;
-import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -122,7 +119,7 @@ public class TaleUtils {
         if (null == session) {
             return null;
         }
-        return (UserVo) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
+        return (UserVo) session.getAttribute(WebConstant.LOGIN_SESSION_KEY);
     }
 
 
@@ -134,10 +131,10 @@ public class TaleUtils {
      */
     public static Integer getCookieUid(HttpServletRequest request) {
         if (null != request) {
-            Cookie cookie = cookieRaw(WebConst.USER_IN_COOKIE, request);
+            Cookie cookie = cookieRaw(WebConstant.USER_IN_COOKIE, request);
             if (cookie != null && cookie.getValue() != null) {
                 try {
-                    String uid = Tools.deAes(cookie.getValue(), WebConst.AES_SALT);
+                    String uid = Tools.deAes(cookie.getValue(), WebConstant.AES_SALT);
                     return StringUtils.isNotBlank(uid) && Tools.isNumber(uid) ? Integer.valueOf(uid) : null;
                 } catch (Exception e) {
                 }
@@ -174,9 +171,9 @@ public class TaleUtils {
      */
     public static void setCookie(HttpServletResponse response, Integer uid) {
         try {
-            String val = Tools.enAes(uid.toString(), WebConst.AES_SALT);
+            String val = Tools.enAes(uid.toString(), WebConstant.AES_SALT);
             boolean isSSL = false;
-            Cookie cookie = new Cookie(WebConst.USER_IN_COOKIE, val);
+            Cookie cookie = new Cookie(WebConstant.USER_IN_COOKIE, val);
             cookie.setPath("/");
             cookie.setMaxAge(60*30);
             cookie.setSecure(isSSL);
@@ -232,8 +229,8 @@ public class TaleUtils {
      * @param response
      */
     public static void logout(HttpSession session, HttpServletResponse response) {
-        session.removeAttribute(WebConst.LOGIN_SESSION_KEY);
-        Cookie cookie = new Cookie(WebConst.USER_IN_COOKIE, "");
+        session.removeAttribute(WebConstant.LOGIN_SESSION_KEY);
+        Cookie cookie = new Cookie(WebConstant.USER_IN_COOKIE, "");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         try {

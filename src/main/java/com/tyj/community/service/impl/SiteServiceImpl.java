@@ -1,7 +1,7 @@
 package com.tyj.community.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.admin.AttachController;
 import com.tyj.community.dao.AttachVoMapper;
 import com.tyj.community.dao.CommentVoMapper;
@@ -11,11 +11,10 @@ import com.tyj.community.dto.MetaDto;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.*;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ISiteService;
+import com.tyj.community.service.SiteService;
 import com.tyj.community.utils.DateKit;
 import com.tyj.community.utils.TaleUtils;
 import com.tyj.community.utils.ZipUtils;
-import com.tyj.community.utils.backup.Backup;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +31,7 @@ import java.util.*;
  * Created by tyj on 2018/11/28.
  */
 @Service
-public class SiteServiceImpl implements ISiteService {
+public class SiteServiceImpl implements SiteService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SiteServiceImpl.class);
 
@@ -204,7 +203,7 @@ public class SiteServiceImpl implements ISiteService {
             if(StringUtils.isBlank(orderBy)){
                 orderBy = "count desc, a.mid desc";
             }
-            if(limit < 1 || limit > WebConst.MAX_POSTS){
+            if(limit < 1 || limit > WebConstant.MAX_POSTS){
                 limit = 10;
             }
             Map<String, Object> paraMap = new HashMap<>();

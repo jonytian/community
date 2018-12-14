@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by tyj on 2018/11/27.
  */
-public interface ILogService {
+public interface LogService {
     /**
      * 保存操作日志
      *

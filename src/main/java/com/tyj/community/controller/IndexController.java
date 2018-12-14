@@ -1,18 +1,17 @@
 package com.tyj.community.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 
 import com.tyj.community.dto.ErrorCode;
-import com.tyj.community.dto.LogActions;
 import com.tyj.community.dto.MetaDto;
 import com.tyj.community.dto.Types;
 import com.tyj.community.entity.*;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.ICommentService;
-import com.tyj.community.service.IContentService;
-import com.tyj.community.service.IMetaService;
-import com.tyj.community.service.ISiteService;
+import com.tyj.community.service.CommentService;
+import com.tyj.community.service.ContentService;
+import com.tyj.community.service.MetaService;
+import com.tyj.community.service.SiteService;
 import com.tyj.community.utils.IPKit;
 import com.tyj.community.utils.PatternKit;
 import com.tyj.community.utils.TaleUtils;
@@ -25,7 +24,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,16 +40,16 @@ public class IndexController extends BaseController{
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
-    private IContentService contentService;
+    private ContentService contentService;
 
     @Autowired
-    private ICommentService commentService;
+    private CommentService commentService;
 
     @Autowired
-    private IMetaService metaService;
+    private MetaService metaService;
 
     @Autowired
-    private ISiteService siteService;
+    private SiteService siteService;
 
     /**
      * 首页
@@ -70,7 +68,7 @@ public class IndexController extends BaseController{
     @GetMapping(value = "image/{p}")
     @ResponseBody
     public PageInfo getImage(HttpServletRequest request, @PathVariable int p ) {
-        p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
+        p = p < 0 || p > WebConstant.MAX_PAGE ? 1 : p;
         Integer limit = 10;
         PageInfo<ContentVo> articles = contentService.getContents(p, limit);
         return articles;
@@ -92,7 +90,7 @@ public class IndexController extends BaseController{
      */
     @GetMapping(value = "page/{p}")
     public String index(HttpServletRequest request, @PathVariable int p, @RequestParam(value = "limit", defaultValue = "12") int limit) {
-        p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
+        p = p < 0 || p > WebConstant.MAX_PAGE ? 1 : p;
         PageInfo<ContentVo> articles = contentService.getContents(p, limit);
         List<ContentVo> hotArticles = contentService.getHotContents();
         request.setAttribute("articles", articles);
@@ -272,7 +270,7 @@ public class IndexController extends BaseController{
     @GetMapping(value = "category/{keyword}/{page}")
     public String categories(HttpServletRequest request, @PathVariable String keyword,
                              @PathVariable int page, @RequestParam(value = "limit", defaultValue = "12") int limit) {
-        page = page < 0 || page > WebConst.MAX_PAGE ? 1 : page;
+        page = page < 0 || page > WebConstant.MAX_PAGE ? 1 : page;
         MetaDto metaDto = metaService.getMeta(Types.CATEGORY.getType(), keyword);
         if (null == metaDto) {
             return this.render_404();
@@ -349,7 +347,7 @@ public class IndexController extends BaseController{
 
     @GetMapping(value = "search/{keyword}/{page}")
     public String search(HttpServletRequest request, @PathVariable String keyword, @PathVariable int page, @RequestParam(value = "limit", defaultValue = "12") int limit) {
-        page = page < 0 || page > WebConst.MAX_PAGE ? 1 : page;
+        page = page < 0 || page > WebConstant.MAX_PAGE ? 1 : page;
         PageInfo<ContentVo> articles = contentService.getArticles(keyword, page, limit);
         request.setAttribute("articles", articles);
         request.setAttribute("type", "搜索");
@@ -370,7 +368,7 @@ public class IndexController extends BaseController{
             chits = 0;
         }
         hits = null == hits ? 1 : hits + 1;
-        if (hits >= WebConst.HIT_EXCEED) {
+        if (hits >= WebConstant.HIT_EXCEED) {
             ContentVo temp = new ContentVo();
             temp.setCid(cid);
             temp.setHits(chits + hits);
@@ -404,7 +402,7 @@ public class IndexController extends BaseController{
     @GetMapping(value = "tag/{name}/{page}")
     public String tags(HttpServletRequest request, @PathVariable String name, @PathVariable int page, @RequestParam(value = "limit", defaultValue = "12") int limit) {
 
-        page = page < 0 || page > WebConst.MAX_PAGE ? 1 : page;
+        page = page < 0 || page > WebConstant.MAX_PAGE ? 1 : page;
 //        对于空格的特殊处理
         name = name.replaceAll("\\+", " ");
         MetaDto metaDto = metaService.getMeta(Types.TAG.getType(), name);

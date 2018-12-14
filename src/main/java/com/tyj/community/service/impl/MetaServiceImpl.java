@@ -1,6 +1,6 @@
 package com.tyj.community.service.impl;
 
-import com.tyj.community.constant.WebConst;
+import com.tyj.community.constant.WebConstant;
 import com.tyj.community.dao.MetaVoMapper;
 import com.tyj.community.dto.MetaDto;
 import com.tyj.community.dto.Types;
@@ -9,9 +9,9 @@ import com.tyj.community.entity.MetaVo;
 import com.tyj.community.entity.MetaVoExample;
 import com.tyj.community.entity.RelationshipVoKey;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IContentService;
-import com.tyj.community.service.IMetaService;
-import com.tyj.community.service.IRelationshipService;
+import com.tyj.community.service.ContentService;
+import com.tyj.community.service.MetaService;
+import com.tyj.community.service.RelationshipService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,17 +26,17 @@ import java.util.Map;
  * Created by tyj on 2018/11/28.
  */
 @Service
-public class MetaServiceImpl implements IMetaService {
+public class MetaServiceImpl implements MetaService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MetaServiceImpl.class);
 
     @Resource
     private MetaVoMapper metaDao;
 
     @Resource
-    private IRelationshipService relationshipService;
+    private RelationshipService relationshipService;
 
     @Resource
-    private IContentService contentService;
+    private ContentService contentService;
 
     @Override
     public MetaDto getMeta(String type, String name) {
@@ -68,7 +68,7 @@ public class MetaServiceImpl implements IMetaService {
             if (StringUtils.isBlank(orderby)) {
                 orderby = "count desc, a.mid desc";
             }
-            if (limit < 1 || limit > WebConst.MAX_POSTS) {
+            if (limit < 1 || limit > WebConstant.MAX_POSTS) {
                 limit = 10;
             }
             Map<String, Object> paraMap = new HashMap<>();

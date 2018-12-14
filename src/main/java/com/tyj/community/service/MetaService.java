@@ -9,7 +9,7 @@ import java.util.List;
  * 分类信息service接口
  * Created by tyj on 2018/11/28.
  */
-public interface IMetaService {
+public interface MetaService {
     /**
      * 根据类型和名字查询项
      *

@@ -5,7 +5,7 @@ import com.tyj.community.dto.Types;
 import com.tyj.community.entity.MetaVo;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.exception.TipException;
-import com.tyj.community.service.IMetaService;
+import com.tyj.community.service.MetaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class LinksController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(LinksController.class);
 
     @Resource
-    private IMetaService metasService;
+    private MetaService metasService;
 
     /**
      * 友链
