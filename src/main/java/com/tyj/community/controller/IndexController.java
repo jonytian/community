@@ -73,16 +73,20 @@ public class IndexController extends BaseController{
         PageInfo<ContentVo> articles = contentService.getContents(p, limit);
         return articles;
     }
-
+    @GetMapping(value = "article/image/{p}")
+    @ResponseBody
+    public PageInfo getImage1(HttpServletRequest request, @PathVariable int p ) {
+        p = p < 0 || p > WebConstant.MAX_PAGE ? 1 : p;
+        Integer limit = 10;
+        PageInfo<ContentVo> articles = contentService.getContents(p, limit);
+        return articles;
+    }
 
     @RequestMapping("text")
     public String text() {
         return this.render("content/text/text");
     }
-    @RequestMapping("text/detail")
-    public String detail() {
-        return this.render("content/text/detail");
-    }
+
 
     /**
      * 首页内容
@@ -128,6 +132,16 @@ public class IndexController extends BaseController{
         updateArticleHit(contents.getCid(), contents.getHits());
         return this.render("content/text/detail");
     }
+
+
+    @GetMapping(value = "article/comment/{p}")
+    @ResponseBody
+    public PageInfo getComments(HttpServletRequest request, @PathVariable int p , @RequestParam(value = "limit", defaultValue = "12") int limit, @PathVariable String cid)  {
+        p = p < 0 || p > WebConstant.MAX_PAGE ? 1 : p;
+        PageInfo<ContentVo> comments = contentService.getContents(p, limit);
+        return comments;
+    }
+
 
     /**
      * 文章页(预览)
