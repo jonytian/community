@@ -156,7 +156,7 @@
         <dt class="fly-panel-title">本周热议</dt>
         <th:block th:each="hotArticle: ${hotArticles}">
           <dd>
-            <a href="jie/detail.html" th:text="${hotArticle.title}"></a>
+            <a href="jie/detail" th:text="${hotArticle.title}"></a>
             <span>
               <i class="iconfont icon-pinglun1"></i>
               <i th:text="${hotArticle.commentsNum}"></i>

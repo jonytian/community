@@ -64,7 +64,7 @@ public class IndexController extends BaseController{
 
     @RequestMapping("image")
     public String image() {
-        return this.render("content/image/index");
+        return this.render("content/image/image");
     }
 
     @GetMapping(value = "image/{p}")
@@ -73,11 +73,16 @@ public class IndexController extends BaseController{
         p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
         Integer limit = 10;
         PageInfo<ContentVo> articles = contentService.getContents(p, limit);
-
-
-
         return articles;
     }
+
+
+    @RequestMapping("text")
+    public String text() {
+        return this.render("content/text/text");
+    }
+
+
     /**
      * 首页内容
      * @param request request
