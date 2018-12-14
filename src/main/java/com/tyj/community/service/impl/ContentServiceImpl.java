@@ -100,7 +100,7 @@ public class ContentServiceImpl implements ContentService {
         LOGGER.debug("Enter getContents method");
         ContentVoExample example = new ContentVoExample();
         example.setOrderByClause("created desc");
-        example.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
+        example.createCriteria().andTypeEqualTo(Types.TEXT.getType()).andStatusEqualTo(Types.PUBLISH.getType());
         PageHelper.startPage(p, limit);
         List<ContentVo> data = contentDao.selectByExampleWithBLOBs(example);
         PageInfo<ContentVo> pageInfo = new PageInfo<>(data);

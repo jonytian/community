@@ -16,15 +16,15 @@ layui.use('flow', function(){
                 layui.each(res.list, function(index, item){
                     lis.push(
                         '<li>'+
-                        '<a href="home" class="fly-avatar">'+
+                        '<a href="user/home" class="fly-avatar">'+
                         '<img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" alt="头像">' +
                         '</a>'+
                         '<h2>'+
                         '<a class="layui-badge">'+'公告'+'</a>'+
-                        '<a href="detail">'+item.title+'</a>'+
+                        '<a href="article/'+item.cid+'">'+item.title+'</a>'+
                         '</h2>'+
                         '<div class="fly-list-info">'+
-                        '<a href="home" link>'+
+                        '<a href="user/home" link>'+
                         '<cite>'+item.author+'</cite>'+
                         '</a>'+
                         '<span>'+item.created+'</span>'+

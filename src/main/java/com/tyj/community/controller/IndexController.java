@@ -79,7 +79,10 @@ public class IndexController extends BaseController{
     public String text() {
         return this.render("content/text/text");
     }
-
+    @RequestMapping("text/detail")
+    public String detail() {
+        return this.render("content/text/detail");
+    }
 
     /**
      * 首页内容

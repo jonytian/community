@@ -12,6 +12,7 @@ public enum Types {
     LINK("link"),
     IMAGE("image"),
     FILE("file"),
+    TEXT("text"),
     CSRF_TOKEN("csrf_token"),
     COMMENTS_FREQUENCY("comments:frequency"),
 
