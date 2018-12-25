@@ -23,12 +23,12 @@ layui.use('flow', function(){
                         <!--用户信息-->
                         '<div class="j-list-user">'+
                         '<div class="u-img">'+
-                        '<a href="/user/others-21491465.html" target="_blank">'+
+                        '<a href="user/home" target="_blank">'+
                         '<img class="u-logo lazy" src="http://mpic.spriteapp.cn/profile" data-original="http://mpic.spriteapp.cn/profile" alt="取之最右"/>'+
                         '</a>'+
                         '</div>'+
                         '<div class="u-txt">'+
-                        '<a href="/user/others-21491465.html" class="u-user-name" target="_blank">'+ item.author +'</a>'+
+                        '<a href="user/home" class="u-user-name" target="_blank">'+ item.author +'</a>'+
                         '<span class="u-time  f-ib f-fr">'+ '2018-12-12 11:32:01' +'</span>'+
                         '</div>'+
                         '</div>'+
@@ -37,10 +37,10 @@ layui.use('flow', function(){
                         <!--因为头像单独占位 所以内容需要 移动 一个头像高度 30px+间距10px -->
                         <!--描述 段子 直接 只有它 宽度440 高度416-->
                         '<div class="j-r-list-c-desc">'+
-                        '<a href="/detail-28993523.html">'+ item.title +'</a>'+
+                        '<a href="article/'+item.cid+'">'+ item.title +'</a>'+
                         '</div>'+
                         '<div class="j-r-list-c-img">'+
-                        '<a href="/detail-28993523.html">'+
+                        '<a href="article/'+item.cid+'">'+
                         '<img src="'+img[index]+'" class="lazy" data-original="" title="可以试试！" alt="可以试试！"/>'+
                         '</a>'+
                         '</div>'+
@@ -82,7 +82,7 @@ layui.use('flow', function(){
                         '<i class="icon-cc">'+'</i>'+
                         '</li>'+
                         '<li class=" f-tac j-comment j-comment-width  j-comment-down-width">'+
-                        '<a href="/detail-28993523.html#comment" class="j-list-comment" target="_blank">'+
+                        '<a href="article/'+item.cid+'#comment" class="j-list-comment" target="_blank">'+
                         '<i class="icon-comment ">'+'</i>&nbsp;<span class="comment-counts">'+'157'+'</span>'+'</a>'+
                         '</li>'+
                         '</ul>'+

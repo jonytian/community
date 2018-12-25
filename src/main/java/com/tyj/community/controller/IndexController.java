@@ -62,7 +62,7 @@ public class IndexController extends BaseController{
 
     @RequestMapping("image")
     public String image() {
-        return this.render("post/image/image");
+        return this.render("post/image");
     }
 
     @GetMapping(value = "image/{p}")
@@ -84,23 +84,23 @@ public class IndexController extends BaseController{
 
     @RequestMapping("text")
     public String getText() {
-        return this.render("post/text/text");
+        return this.render("post/text");
     }
     @RequestMapping("best")
     public String getBest() {
-        return this.render("post/text/text");
+        return this.render("post/text");
     }
     @RequestMapping("all")
     public String getAll() {
-        return this.render("post/text/text");
+        return this.render("post/text");
     }
     @RequestMapping("new")
     public String getNew() {
-        return this.render("post/text/text");
+        return this.render("post/text");
     }
     @RequestMapping("hot")
     public String getHot() {
-        return this.render("post/text/text");
+        return this.render("post/text");
     }
 
     /**
@@ -145,7 +145,7 @@ public class IndexController extends BaseController{
         request.setAttribute("is_post", true);
         completeArticle(request, contents);
         updateArticleHit(contents.getCid(), contents.getHits());
-        return this.render("post/text/detail");
+        return this.render("post/detail");
     }
 
 
