@@ -123,7 +123,7 @@ public class ContentServiceImpl implements ContentService {
                 contentVoExample.createCriteria().andSlugEqualTo(id);
                 List<ContentVo> contentVos = contentDao.selectByExampleWithBLOBs(contentVoExample);
                 if (contentVos.size() != 1) {
-                    throw new TipException("query content by id and return is not one");
+                    throw new TipException("query post by id and return is not one");
                 }
                 return contentVos.get(0);
             }

@@ -23,12 +23,12 @@ layui.use('flow', function(){
                         <!--用户信息-->
                         '<div class="j-list-user">'+
                         '<div class="u-img">'+
-                        '<a href="/user/others-21491465.html" target="_blank">'+
+                        '<a href="/user/home" target="_blank">'+
                         '<img class="u-logo lazy" src="http://mpic.spriteapp.cn/profile" data-original="http://mpic.spriteapp.cn/profile" alt="取之最右"/>'+
                         '</a>'+
                         '</div>'+
                         '<div class="u-txt">'+
-                        '<a href="/user/others-21491465.html" class="u-user-name" target="_blank">'+ item.author +'</a>'+
+                        '<a href="/user/home" class="u-user-name" target="_blank">'+ item.author +'</a>'+
                         '<span class="u-time  f-ib f-fr">'+ '2018-12-12 11:32:01' +'</span>'+
                         '</div>'+
                         '</div>'+

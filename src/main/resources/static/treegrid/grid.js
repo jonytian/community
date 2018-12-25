@@ -187,7 +187,7 @@
                             GRIDORDER.push({ code: ordCode, asc: 'asc' });
                         }
                         fnData(function () {
-                            fnBody(CONFIG.render(grid.view, grid.pageData), grid.elem.find('.grid-content'));
+                            fnBody(CONFIG.render(grid.view, grid.pageData), grid.elem.find('.grid-post'));
                         });
                     }
                     //全选
@@ -207,7 +207,7 @@
                 //渲染Grid视图
                 function fnSuccess() {
                     grid.elem.html('');
-                    var content = $('<div class="grid-content"></div>').appendTo(grid.elem),
+                    var content = $('<div class="grid-post"></div>').appendTo(grid.elem),
                            html = CONFIG.render(grid.view, grid.pageData);
                     fnHeader(html, content);
                     fnBody(html, content);
@@ -315,7 +315,7 @@
                                     grid.page = obj.curr;
                                     //grid.build();
                                     fnData(function () {
-                                        fnBody(CONFIG.render(grid.view, grid.pageData), grid.elem.find('.grid-content'));
+                                        fnBody(CONFIG.render(grid.view, grid.pageData), grid.elem.find('.grid-post'));
                                     });
                                 }
                             }
@@ -526,7 +526,7 @@
                     if (Object.prototype.toString.call(rows) != '[object Array]')
                         rows = [rows];
                     var html = CONFIG.render(grid.view, { rows: rows, op: op });
-                    //var content = grid.elem.find('.grid-content');
+                    //var post = grid.elem.find('.grid-post');
                     var trs = $(html).find('tbody tr');
                     trs.on('click', events.rowClick);
                     //verify(trs);

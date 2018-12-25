@@ -419,7 +419,7 @@ layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(
           ,'<li>今日最快</li>'
           ,'<li>总签到榜</li>'
         ,'</ul>'
-        ,'<div class="layui-tab-content fly-signin-list" id="LAY_signin_list">'
+        ,'<div class="layui-tab-post fly-signin-list" id="LAY_signin_list">'
           ,'<ul class="layui-tab-item layui-show"></ul>'
           ,'<ul class="layui-tab-item">2</ul>'
           ,'<ul class="layui-tab-item">3</ul>'

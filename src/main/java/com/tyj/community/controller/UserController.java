@@ -136,7 +136,7 @@ public class UserController extends BaseController{
      * 用户首页
      * @return
      */
-    @RequestMapping("/index")
+    @RequestMapping("user/index")
     public String index() {
         return this.render("user/index");
     }
@@ -144,7 +144,7 @@ public class UserController extends BaseController{
      * 用户资料
      * @return
      */
-    @RequestMapping("/home")
+    @RequestMapping("user/home")
     public String home() {
         return this.render("user/home");
     }
@@ -152,7 +152,7 @@ public class UserController extends BaseController{
      * 用户设置
      * @return
      */
-    @RequestMapping("/set")
+    @RequestMapping("user/set")
     public String set() {
         return this.render("user/set");
     }
@@ -160,7 +160,7 @@ public class UserController extends BaseController{
      * 用户消息
      * @return
      */
-    @RequestMapping("/message")
+    @RequestMapping("user/message")
     public String message() {
         return this.render("user/message");
     }
@@ -169,7 +169,7 @@ public class UserController extends BaseController{
      * 我的收藏
      * @return
      */
-    @RequestMapping("/collection")
+    @RequestMapping("user/collection")
     public String collection() {
         return this.render("user/collection");
     }

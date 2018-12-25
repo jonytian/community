@@ -54,7 +54,7 @@ layui.define('fly', function(exports){
         </div>\
       </div>\
       <div class="detail-body jieda-body photos">\
-        {{ d.content}}\
+        {{ d.post}}\
       </div>\
     </li>'
     data.content = fly.content(data.content);

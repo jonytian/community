@@ -37,7 +37,7 @@ function subArticle(status) {
         tale.alertWarn('请输入文章内容');
         return;
     }
-    $('#content-editor').val(content);
+    $('#post-editor').val(content);
     $("#articleForm #status").val(status);
     $("#articleForm #categories").val($('#multiple-sel').val());
     var params = $("#articleForm").serialize();

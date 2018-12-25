@@ -304,7 +304,7 @@ layui.define(['laypage', 'fly', 'element', 'flow'], function(exports){
       <ul class="mine-msg">\
       {{# for(var i = 0; i < len; i++){ }}\
         <li data-id="{{d.rows[i].id}}">\
-          <blockquote class="layui-elem-quote">{{ d.rows[i].content}}</blockquote>\
+          <blockquote class="layui-elem-quote">{{ d.rows[i].post}}</blockquote>\
           <p><span>{{d.rows[i].time}}</span><a href="javascript:;" class="layui-btn layui-btn-sm layui-btn-danger fly-delete">删除</a></p>\
         </li>\
       {{# } }}\

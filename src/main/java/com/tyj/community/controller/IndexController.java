@@ -62,7 +62,7 @@ public class IndexController extends BaseController{
 
     @RequestMapping("image")
     public String image() {
-        return this.render("content/image/image");
+        return this.render("post/image/image");
     }
 
     @GetMapping(value = "image/{p}")
@@ -84,23 +84,23 @@ public class IndexController extends BaseController{
 
     @RequestMapping("text")
     public String getText() {
-        return this.render("content/text/text");
+        return this.render("post/text/text");
     }
     @RequestMapping("best")
     public String getBest() {
-        return this.render("content/text/text");
+        return this.render("post/text/text");
     }
     @RequestMapping("all")
     public String getAll() {
-        return this.render("content/text/text");
+        return this.render("post/text/text");
     }
     @RequestMapping("new")
     public String getNew() {
-        return this.render("content/text/text");
+        return this.render("post/text/text");
     }
     @RequestMapping("hot")
     public String getHot() {
-        return this.render("content/text/text");
+        return this.render("post/text/text");
     }
 
     /**
@@ -145,7 +145,7 @@ public class IndexController extends BaseController{
         request.setAttribute("is_post", true);
         completeArticle(request, contents);
         updateArticleHit(contents.getCid(), contents.getHits());
-        return this.render("content/text/detail");
+        return this.render("post/text/detail");
     }
 
 
@@ -470,10 +470,10 @@ public class IndexController extends BaseController{
      *  article post
      * @return
      */
-    @RequestMapping("publish")
-    public String post() {
-        return this.render("content/text/publish");
-    }
+//    @RequestMapping("publish")
+//    public String post() {
+//        return this.render("post/text/publish");
+//    }
 
 
     /**
@@ -481,15 +481,15 @@ public class IndexController extends BaseController{
      * @param user
      * @return
      */
-    @RequestMapping(value = "publish", method = RequestMethod.POST)
-    @ResponseBody
-    public RestResponseBo post(
-            UserVo user,
-            HttpServletRequest request, HttpServletResponse response) {
-
-
-        return RestResponseBo.ok();
-    }
+//    @RequestMapping(value = "publish", method = RequestMethod.POST)
+//    @ResponseBody
+//    public RestResponseBo post(
+//            UserVo user,
+//            HttpServletRequest request, HttpServletResponse response) {
+//
+//
+//        return RestResponseBo.ok();
+//    }
 
 
 
@@ -497,8 +497,8 @@ public class IndexController extends BaseController{
      *  article index
      * @return
      */
-    @RequestMapping("publish/index")
-    public String home() {
-        return this.render("content/text/index");
+    @RequestMapping("publish")
+    public String publish() {
+        return this.render("post/publish");
     }
 }
