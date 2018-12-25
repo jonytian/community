@@ -4,7 +4,8 @@
 }
 
 .j-list,.j-r-wrst .n-title {
-    clear: both
+    clear: both;
+
 }
 
 .j-r-nav {
@@ -79,6 +80,7 @@
 }
 
 .j-list-user .u-img {
+
     position: relative;
     float: left;
     display: block;
@@ -86,31 +88,39 @@
     height: 30px;
     border-radius: 30px;
     background: url(../img/j_pc_spriter_common1.2.0.png) -4pc -299px no-repeat;
-    background-size: contain
+    background-size: contain;
+
 }
 
 .j-list-user .u-img img.u-logo {
+    margin-left:  10px;
     display: block;
     width: 100%;
     height: 100%;
-    border-radius: 30px
+    border-radius: 30px;
+
 }
 
 .j-list-user .u-txt {
     float: right;
-    width: 570px;
+    width: 725px;
     height: 30px;
-    line-height: 1.875rem
+    line-height: 1.875rem ;
+
 }
 
 .j-list-user .u-txt .u-user-name {
     padding-left: 4px;
-    font-size: .875rem
+    font-size: .875rem;
+
+
 }
 
 .j-list-user .u-txt .u-time {
+    margin-right: 10px;
     color: #a9a9a9;
-    font-size: .875rem
+    font-size: .875rem;
+
 }
 
 .j-r-list-c .j-r-list-c-desc,.j-r-list-c .j-r-list-c-desc h1 {
@@ -120,12 +130,14 @@
 
 .j-r-list-c {
     width: 100%;
-    height: auto
+    height: auto;
+
 }
 
 .j-r-list-c .j-r-list-c-desc {
-    margin-left: 40px;
-    line-height: 1.5625rem
+    margin-left: 50px;
+    line-height: 1.5625rem;
+
 }
 
 .j-r-list-c .j-r-list-c-desc h1 {
@@ -143,7 +155,8 @@
     background-color: #f1f1f1;
     color: #000;
     font-size: 9pt;
-    line-height: 1.125rem
+    line-height: 1.125rem;
+
 }
 
 .j-r-list-c .j-r-list-c-img {
@@ -458,7 +471,8 @@
     padding-bottom: 6px;
     width: 298px;
     height: 40px;
-    line-height: 2.5rem
+    line-height: 2.5rem;
+
 }
 
 .j-hot-target .title h3 {

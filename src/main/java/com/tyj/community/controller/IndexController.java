@@ -83,10 +83,25 @@ public class IndexController extends BaseController{
     }
 
     @RequestMapping("text")
-    public String text() {
+    public String getText() {
         return this.render("content/text/text");
     }
-
+    @RequestMapping("best")
+    public String getBest() {
+        return this.render("content/text/text");
+    }
+    @RequestMapping("all")
+    public String getAll() {
+        return this.render("content/text/text");
+    }
+    @RequestMapping("new")
+    public String getNew() {
+        return this.render("content/text/text");
+    }
+    @RequestMapping("hot")
+    public String getHot() {
+        return this.render("content/text/text");
+    }
 
     /**
      * 首页内容
