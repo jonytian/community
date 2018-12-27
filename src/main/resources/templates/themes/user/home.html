@@ -25,7 +25,7 @@
 
   <p class="fly-home-info">
     <i class="iconfont icon-kiss" title="飞吻"></i><span style="color: #FF7200;" th:text="${userInfo.score} +'积分'" ></span>
-    <i class="iconfont icon-shijian"></i><span th:text="${userInfo.createTime}+'加入'"></span>
+    <i class="iconfont icon-shijian"></i><span th:text="${#dates.format(userInfo.createTime, 'yyyy-MM-dd HH:mm:ss')}+'  加入'"></span>
     <i class="iconfont icon-chengshi"></i><span>来自杭州</span>
   </p>
 
@@ -48,9 +48,9 @@
           <!--<i class="layui-icon fly-loading">&#xe63d;</i>-->
           <th:block th:each="article: ${articles}">
             <li>
-              <!--<span class="fly-jing">精</span>-->
+              <span class="fly-jing">精</span>
               <a href="" class="jie-title" th:text="${article.title}"></a>
-              <i th:text="${article.created}"></i>
+              <i th:text="${#dates.format(article.createTime, 'yyyy-MM-dd HH:mm:ss')}"></i>
               <em class="layui-hide-xs" th:text="${article.commentsNum} +'次回答' "></em>
             </li>
           </th:block>
@@ -67,7 +67,7 @@
           <th:block th:each="comment: ${comments}">
             <li>
               <p>
-                <span th:text="${comment.created}"></span>
+                <span th:text="${#dates.format(comment.createTime, 'yyyy-MM-dd HH:mm:ss')}"></span>
                 在<a href="" target="_blank" th:text="${comment.postTitle}"></a>中回答：
               </p>
               <div class="home-dacontent" th:text="${comment.content}">

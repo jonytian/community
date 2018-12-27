@@ -117,6 +117,7 @@
     ,
     <include refid="Blob_Column_List" />
     ,(select u.nickname from t_users u where u.id=author_id) as author
+    ,create_time as createTime
     from t_contents
     order by comments_num desc limit 0,9
   </select>

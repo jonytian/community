@@ -1,10 +1,15 @@
 package com.tyj.community.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by tyj on 2018/11/28.
  */
+
+@Data
 public class ContentVo implements Serializable {
     /**
      * post表主键
@@ -92,13 +97,32 @@ public class ContentVo implements Serializable {
      */
     private String content;
 
-
-
-
     /**
      * 是否置顶：0不置顶 1置顶
      */
     private Integer stick;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+
+    /**
+     * 删除时间
+     */
+    private Date deleteTime;
+
+    /**
+     * 版本号
+     */
+    private String version;
+
+
 
     private static final long serialVersionUID = 1L;
 
