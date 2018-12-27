@@ -9,6 +9,8 @@
     <result column="gender" jdbcType="INTEGER" property="gender"/>
     <result column="age" jdbcType="INTEGER" property="age"/>
     <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+    <result column="score" jdbcType="INTEGER" property="score"/>
+    <result column="description" jdbcType="VARCHAR" property="description"/>
     <result column="email" jdbcType="VARCHAR" property="email"/>
     <result column="code" jdbcType="VARCHAR" property="code"/>
     <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
@@ -77,7 +79,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, password, nickname, gender, age, mobile, email, code, avatar, send_time, create_time, update_time, delete_time,
+    id, username, password, nickname, gender, age, mobile, email,score,description, code, avatar, send_time, create_time, update_time, delete_time,
     version
   </sql>
   <select id="selectByExample" parameterType="com.tyj.community.entity.UserVoExample" resultMap="BaseResultMap">
@@ -119,10 +121,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.tyj.community.entity.UserVo" useGeneratedKeys="true" keyProperty="id">
-    insert into t_users (id, username, password, nickname, gender, age, mobile, email, code, avatar, sendTime, createTime, updateTime, deleteTime,
+    insert into t_users (id, username, password, nickname, gender, age, mobile,score,description, email, code, avatar, sendTime, createTime, updateTime, deleteTime,
     version)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
-    #{gender,jdbcType=INTEGER}, #{age,jdbcType=INTEGER},#{mobile,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+    #{gender,jdbcType=INTEGER}, #{age,jdbcType=INTEGER},#{mobile,jdbcType=VARCHAR},#{score,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
     #{avatar,jdbcType=VARCHAR},
     #{sendTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP},
     #{version,jdbcType=VARCHAR})

@@ -1,10 +1,14 @@
 package com.tyj.community.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
  * Created by tyj on 2018/11/28.
  */
+
+@Data
 public class CommentVo implements Serializable {
     /**
      * comment表主键
@@ -15,6 +19,11 @@ public class CommentVo implements Serializable {
      * post表主键,关联字段
      */
     private Integer cid;
+
+    /**
+     * post标题
+     */
+    private String postTitle;
 
     /**
      * 评论生成时的GMT unix时间戳

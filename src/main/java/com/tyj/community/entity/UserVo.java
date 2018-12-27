@@ -1,11 +1,15 @@
 package com.tyj.community.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by tyj on 2018/11/27.
  */
+
+@Data
 public class UserVo implements Serializable {
 
     /**
@@ -47,6 +51,17 @@ public class UserVo implements Serializable {
      * 手机号
      */
     private String mobile;
+
+    /**
+     * 分数
+     */
+    private Integer score;
+
+    /**
+     * 描述
+     */
+    private String description;
+
 
     /**
      * 邮箱
@@ -219,5 +234,19 @@ public class UserVo implements Serializable {
         this.version = version;
     }
 
+    public Integer getScore() {
+        return score;
+    }
 
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

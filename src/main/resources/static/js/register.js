@@ -25,7 +25,7 @@ $(function(){
 function register(){
     var flag=checkParams();
     if(flag!=false){
-    $.post("register",$("#userRegister").serialize(),function(data){
+    $.post("doRegister",$("#userRegister").serialize(),function(data){
         console.log("data:"+data);
         if(data.success){
             layer.alert("注册成功",function () {

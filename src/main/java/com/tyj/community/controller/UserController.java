@@ -3,9 +3,13 @@ package com.tyj.community.controller;
 import com.tyj.community.constant.WebConstant;
 import com.tyj.community.controller.admin.AuthController;
 import com.tyj.community.dto.LogActions;
+import com.tyj.community.entity.CommentVo;
+import com.tyj.community.entity.ContentVo;
 import com.tyj.community.entity.RestResponseBo;
 import com.tyj.community.entity.UserVo;
 import com.tyj.community.exception.TipException;
+import com.tyj.community.service.CommentService;
+import com.tyj.community.service.ContentService;
 import com.tyj.community.service.LogService;
 import com.tyj.community.service.UserService;
 import com.tyj.community.utils.TaleUtils;
@@ -17,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by tyj on 2018/12/03.
@@ -27,13 +32,17 @@ public class UserController extends BaseController{
     @Autowired
     private UserService usersService;
     @Autowired
+    private ContentService contentService;
+    @Autowired
+    private CommentService commentService;
+    @Autowired
     private LogService logService;
 
     /**
      * 用户登录
      * @return
      */
-    @RequestMapping("/login")
+    @RequestMapping("login")
     public String login() {
 
         return this.render("user/login");
@@ -45,7 +54,7 @@ public class UserController extends BaseController{
      * @param rememberMe
      * @return
      */
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @RequestMapping(value = "doLogin", method = RequestMethod.POST)
     @ResponseBody
     public RestResponseBo login(
             UserVo user,
@@ -80,7 +89,7 @@ public class UserController extends BaseController{
      * 用户注册
      * @return
      */
-    @RequestMapping("/register")
+    @RequestMapping("register")
     public String register() {
         return this.render("user/register");
     }
@@ -91,7 +100,7 @@ public class UserController extends BaseController{
      * @param user
      * @return
      */
-    @RequestMapping(value = "register", method = RequestMethod.POST)
+    @RequestMapping(value = "doRegister", method = RequestMethod.POST)
     @ResponseBody
     public RestResponseBo register(
             UserVo user,
@@ -118,8 +127,10 @@ public class UserController extends BaseController{
      * 用户重置
      * @return
      */
-    @RequestMapping("/forget")
-    public String forget() {
+    @RequestMapping("forget")
+    public String forget(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
         return this.render("user/forget");
     }
 
@@ -127,8 +138,10 @@ public class UserController extends BaseController{
      * 激活邮箱
      * @return
      */
-    @RequestMapping("/activate")
-    public String activate() {
+    @RequestMapping("activate")
+    public String activate(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
         return this.render("user/activate");
     }
 
@@ -137,7 +150,9 @@ public class UserController extends BaseController{
      * @return
      */
     @RequestMapping("user/index")
-    public String index() {
+    public String index(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
         return this.render("user/index");
     }
     /**
@@ -145,7 +160,16 @@ public class UserController extends BaseController{
      * @return
      */
     @RequestMapping("user/home")
-    public String home() {
+    public String home(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
+        Integer userId = user.getId();
+        UserVo userInfo = usersService.queryUserById(userId);
+        List<ContentVo> articles = contentService.getHotContents();
+        List<CommentVo> comments = commentService.getCommentsByUserId(userId);
+        request.setAttribute("userInfo", userInfo);
+        request.setAttribute("articles", articles);
+        request.setAttribute("comments", comments);
         return this.render("user/home");
     }
     /**
@@ -153,7 +177,9 @@ public class UserController extends BaseController{
      * @return
      */
     @RequestMapping("user/set")
-    public String set() {
+    public String set(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
         return this.render("user/set");
     }
     /**
@@ -161,7 +187,9 @@ public class UserController extends BaseController{
      * @return
      */
     @RequestMapping("user/message")
-    public String message() {
+    public String message(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
         return this.render("user/message");
     }
 
@@ -170,7 +198,9 @@ public class UserController extends BaseController{
      * @return
      */
     @RequestMapping("user/collection")
-    public String collection() {
+    public String collection(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
         return this.render("user/collection");
     }
 

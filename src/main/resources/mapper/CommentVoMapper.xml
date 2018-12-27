@@ -427,5 +427,14 @@
     where cid = #{cid,jdbcType=INTEGER}
   </select>
 
+  <!--按文章id查询评论-->
+  <select id="getCommentsByUserId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+     com.coid, com.cid, com.created, com.author, com.author_id, com.owner_id, com.mail, com.url, com.ip, com.agent, com.type, com.status,com.parent
+     ,com.content,(select con.title from t_contents con where con.cid =com.cid) as postTitle
+     from t_comments  com
+     where author_id = #{userId,jdbcType=INTEGER}
+  </select>
+
 
 </mapper>

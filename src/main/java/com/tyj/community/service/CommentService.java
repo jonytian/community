@@ -44,6 +44,15 @@ public interface CommentService {
      */
     List<CommentVo> getCommentsByArticleId(Integer articleId);
 
+
+    /**
+     * 根据文章id查询评论
+     * @param userId
+     * @return
+     */
+    List<CommentVo> getCommentsByUserId(Integer userId);
+
+
     /**
      * 根据主键查询评论
      * @param coid

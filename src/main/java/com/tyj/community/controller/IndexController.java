@@ -498,7 +498,9 @@ public class IndexController extends BaseController{
      * @return
      */
     @RequestMapping("publish")
-    public String publish() {
+    public String publish(HttpServletRequest request) {
+        UserVo user = this.user(request);
+        if (user == null){return this.render("user/login");}
         return this.render("post/publish");
     }
 }

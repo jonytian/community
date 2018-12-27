@@ -28,6 +28,9 @@ public interface CommentVoMapper {
 
     List<CommentVo> getCommentsByArticleId(Integer cid);
 
+    List<CommentVo> getCommentsByUserId(Integer userId);
+
+
     CommentVo selectByPrimaryKey(Integer coid);
 
     int updateByExampleSelective(@Param("record") CommentVo record, @Param("example") CommentVoExample example);

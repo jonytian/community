@@ -100,9 +100,15 @@ public class CommentServiceImpl implements CommentService {
         return pageInfo;
     }
 
+
     @Override
     public List<CommentVo> getCommentsByArticleId(Integer articleId){
-       return commentDao.getCommentsByArticleId(articleId);
+        return commentDao.getCommentsByArticleId(articleId);
+    }
+
+    @Override
+    public List<CommentVo> getCommentsByUserId(Integer userId){
+        return commentDao.getCommentsByUserId(userId);
     }
 
     @Override
