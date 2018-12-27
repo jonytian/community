@@ -25,7 +25,7 @@ $(function(){
 function login(){
     var flag=checkParams();
     if(flag!=false){
-    $.post("/user/login",$("#userLogin").serialize(),function(data){
+    $.post("login",$("#userLogin").serialize(),function(data){
         console.log("data:"+data);
         if(data.success){
             layer.alert("登录成功",function () {
